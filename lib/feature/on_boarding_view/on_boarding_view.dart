@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'widgets/custom_app_bar.dart';
+import 'widgets/custom_logo_image.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
@@ -16,6 +18,8 @@ class OnBoardingView extends StatelessWidget {
           child: const Column(
             children: [
               CustomOnboardingAppBar(),
+              SizedBox(height: 40,),
+              CustomLogoImage(),
             ],
           ),
         ),
@@ -23,5 +27,6 @@ class OnBoardingView extends StatelessWidget {
     ));
   }
 }
+
 
 

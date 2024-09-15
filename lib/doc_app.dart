@@ -1,6 +1,3 @@
-
-import 'dart:ffi';
-
 import 'package:appointment_app/core/routing/app_router.dart';
 import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/core/theming/colors.dart';
@@ -19,7 +16,8 @@ class DocApp extends StatelessWidget {
         title: 'Doc App',
         theme: ThemeData(
           primaryColor: ColorsManager.kPrimaryColor,
-          scaffoldBackgroundColor: Colors.white
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'Inter'
         ),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onBoardingView,

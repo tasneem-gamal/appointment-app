@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:appointment_app/core/routing/app_router.dart';
 import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/core/theming/colors.dart';
@@ -11,7 +13,7 @@ class DocApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize:  ScreenUtil.defaultSize,
+      designSize: ScreenUtil.defaultSize,
       minTextAdapt: true,
       child: MaterialApp(
         title: 'Doc App',

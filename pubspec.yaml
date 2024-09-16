@@ -46,6 +46,7 @@ dependencies:
   retrofit: ^4.4.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   build_runner: ^2.4.12
   flutter_lints: ^4.0.0
   flutter_test:
@@ -53,6 +54,10 @@ dev_dependencies:
   json_serializable: ^6.8.0
   retrofit_generator: ^9.1.2
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/logo.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -89,3 +94,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_native_splash: # Configure splash screen here instead of a separate file
+  color: "#ffffff" # Background color for the splash screen
+  image: assets/images/splash.png # Splash screen image path
+  android: true # Enable splash screen for Android
+  ios: true # Enable splash screen for iOS
+  web: false # Disable splash screen for web

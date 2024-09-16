@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 class AppRouter {
   Route generateRoutes(RouteSettings settings){
+    // arg to be passed
+    //final argument = settings.name;
     switch(settings.name){
       case Routes.onBoardingView:
         return MaterialPageRoute(

@@ -5,15 +5,16 @@ import '../theming/styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, required this.btnText,
+    super.key, required this.btnText, this.onPressed,
   });
   final String btnText;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: ColorsManager.kPrimaryColor,
             shape: RoundedRectangleBorder(

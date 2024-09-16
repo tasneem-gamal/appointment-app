@@ -1,3 +1,5 @@
+import 'package:appointment_app/core/helpers/extension.dart';
+import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +25,11 @@ class OnboardingTextAndButton extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 16.h,),
-          const CustomButton(
+          CustomButton(
             btnText: 'Get Started',
+            onPressed: (){
+              context.pushNamed(Routes.loginView);
+            },
           )
         ],
       ),

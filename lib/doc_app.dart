@@ -17,7 +17,14 @@ class DocApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: ColorsManager.kPrimaryColor,
           scaffoldBackgroundColor: Colors.white,
-          fontFamily: 'Inter'
+          fontFamily: 'Inter',
+          checkboxTheme: CheckboxThemeData(
+            side: BorderSide(
+              color: Color(0xffC2C2C2),
+            ),
+            checkColor: WidgetStateProperty.all(Colors.green),
+            fillColor: WidgetStateProperty.all(Colors.white)
+          )
         ),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onBoardingView,

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/custom_button.dart';
 import 'already_have_account.dart';
 import 'form_field_section.dart';
-import 'sign_in_with_divider.dart';
 import 'terms_condition_section_login_view.dart';
 import 'upper_text_title.dart';
 
@@ -27,8 +26,6 @@ class LoginViewBody extends StatelessWidget {
               height: 24.h,
             ),
             const CustomButton(btnText: 'Login'),
-            SizedBox(height: 32.h),
-            const SignInWithDivider(),
             SizedBox(height: 32.h),
             const TermsConditionSection(),
             SizedBox(height: 24.h),

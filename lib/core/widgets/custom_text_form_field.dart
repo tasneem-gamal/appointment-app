@@ -1,3 +1,4 @@
+import 'package:appointment_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -29,7 +30,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         labelText: labelText,
         labelStyle: const TextStyle(
-          color: Color(0xffC2C2C2)
+          color: ColorsManager.kGreySecondaryTextColor
         )
       ),
     );

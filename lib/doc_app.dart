@@ -19,7 +19,7 @@ class DocApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Inter',
           checkboxTheme: CheckboxThemeData(
-            side: BorderSide(
+            side: const BorderSide(
               color: Color(0xffC2C2C2),
             ),
             checkColor: WidgetStateProperty.all(Colors.green),

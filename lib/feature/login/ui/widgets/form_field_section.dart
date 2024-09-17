@@ -23,7 +23,7 @@ class FormFieldSection extends StatelessWidget {
           labelText: 'Password',
         ),
         SizedBox(
-          height: 16.h,
+          height: 14.h,
         ),
         Row(
           children: [

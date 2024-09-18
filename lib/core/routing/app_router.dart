@@ -1,6 +1,6 @@
 import 'package:appointment_app/core/di/dependency_injection.dart';
 import 'package:appointment_app/core/routing/routes.dart';
-import 'package:appointment_app/feature/login/logic/cubit/login_cubit.dart';
+import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/login_view.dart';
 import 'package:appointment_app/feature/on_boarding_view/on_boarding_view.dart';
 import 'package:flutter/material.dart';

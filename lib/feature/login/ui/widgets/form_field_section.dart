@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
-import 'custom_check_box_with_text.dart';
 
 class FormFieldSection extends StatefulWidget {
   const FormFieldSection({super.key});
@@ -49,18 +48,15 @@ class _FormFieldSectionState extends State<FormFieldSection> {
           SizedBox(
             height: 14.h,
           ),
-          Row(
-            children: [
-              const CheckBoxWithText(),
-              const Spacer(),
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forget Password?',
-                    style: Styles.textStyle12
-                        .copyWith(color: ColorsManager.kPrimaryColor),
-                  ))
-            ],
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Forget Password?',
+                  style: Styles.textStyle12
+                      .copyWith(color: ColorsManager.kPrimaryColor),
+                )),
           )
         ],
       ),

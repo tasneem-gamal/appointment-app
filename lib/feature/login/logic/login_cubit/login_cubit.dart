@@ -2,6 +2,7 @@
 import 'package:appointment_app/feature/login/data/models/login_request_body.dart';
 import 'package:appointment_app/feature/login/data/models/login_response_body.dart';
 import 'package:appointment_app/feature/login/data/repo/login_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'login_state.dart';
@@ -10,6 +11,10 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.loginRepo) : super(LoginStateInitial());
 
   final LoginRepo loginRepo;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
 
   void emitLoginStates(LoginRequestBody loginRequestBody) async{
     final respose = await loginRepo.userLogin(loginRequestBody);

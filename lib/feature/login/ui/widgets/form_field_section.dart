@@ -1,4 +1,6 @@
+import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theming/colors.dart';
@@ -14,23 +16,41 @@ class FormFieldSection extends StatefulWidget {
 
 class _FormFieldSectionState extends State<FormFieldSection> {
 
-  final formKey = GlobalKey<FormState>();
   bool isObsecureText = true;
+  late TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordController = context.read<LoginCubit>().passwordController;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
-          const CustomTextFormField(
-            labelText: 'Email',
+          CustomTextFormField(
+            hintText: 'Email',
+            controller: context.read<LoginCubit>().emailController,
+            validator: (value){
+              if(value == null || value.isEmpty){
+                return 'Please enter a valid email';
+              }
+            },
           ),
           SizedBox(
             height: 16.h,
           ),
           CustomTextFormField(
-            labelText: 'Password',
+            controller: context.read<LoginCubit>().passwordController,
+            validator: (value){
+              if(value == null || value.isEmpty){
+                return 'Please enter a valid password';
+              }
+            },
+            hintText: 'Password',
             suffixIcon: GestureDetector(
               onTap: (){
                 setState(() {

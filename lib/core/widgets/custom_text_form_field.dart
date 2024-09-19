@@ -3,14 +3,24 @@ import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
-    super.key, required this.labelText, this.suffixIcon, this.isObsecureText
-  });
-  final String labelText;
+    super.key, 
+    required this.hintText, 
+    this.suffixIcon, 
+    this.isObsecureText,
+    this.controller,
+    required this.validator
+  }); 
+  final String hintText;
   final Widget? suffixIcon;
   final bool? isObsecureText;
+  final TextEditingController? controller;
+  final Function(String?) validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        return validator(value);
+      },
       obscureText: isObsecureText ?? false,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -31,14 +41,26 @@ class CustomTextFormField extends StatelessWidget {
             color: ColorsManager.k12SizeColorGreyShade
           )
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(
+            color: Colors.red
+          )
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(
+            color: Colors.red
+          )
+        ),
         fillColor: ColorsManager.kLighterGrey,
         filled: true,
         suffixIcon: suffixIcon,
         suffixIconColor: ColorsManager.kGreySecondaryTextColor,
-        labelText: labelText,
-        labelStyle: const TextStyle(
+        hintText: hintText,
+        hintStyle: const TextStyle(
           color: ColorsManager.kGreySecondaryTextColor
-        )
+        ),
       ),
     );
   }

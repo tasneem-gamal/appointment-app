@@ -10,9 +10,8 @@ class ApiService {
 
   Future<LoginResponseBody> login(LoginRequestBody loginRequestBody) async {
     final response = await dio.post(
-      '${ApiConstants.baseUrl}${ApiConstants.login}',
-      data: loginRequestBody.toJson()
-    );
+        '${ApiConstants.baseUrl}${ApiConstants.login}',
+        data: loginRequestBody.toJson());
     return LoginResponseBody.fromJson(response.data);
   }
 }

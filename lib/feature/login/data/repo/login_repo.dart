@@ -3,6 +3,7 @@ import 'package:appointment_app/core/networking/api_service.dart';
 import 'package:appointment_app/feature/login/data/models/login_request_body.dart';
 import 'package:appointment_app/feature/login/data/models/login_response_body.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class LoginRepo {
   final ApiService apiService;
@@ -15,7 +16,10 @@ class LoginRepo {
       final response = await apiService.login(loginRequestBody);
       return right(response);
     } catch (e) {
-      return left(ServerFailure(e.toString()));
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure('An unexpected error occurred. Please try again.'));
     }
   }
 }

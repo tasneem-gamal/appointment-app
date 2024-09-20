@@ -5,45 +5,47 @@ abstract class Failure {
 
   const Failure(this.errMessage);
 }
-class ServerFailure extends Failure{
+
+class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
 
-  factory ServerFailure.fromDioError(DioException dioError){
-    switch(dioError.type){
-      
+  factory ServerFailure.fromDioError(DioException dioError) {
+    switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Connection timeOut with apiServer');
+        return ServerFailure('Connection timeout. Please try again later.');
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Send timeOut with apiServer');
+        return ServerFailure('Unable to connect to the server. Please try again.');
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Recieve timeOut with apiServer');
+        return ServerFailure('Server took too long to respond.');
       case DioExceptionType.badCertificate:
-        return ServerFailure('badCertificate with apiServer');
+        return ServerFailure('Security certificate error. Please try again later.');
       case DioExceptionType.badResponse:
-        return ServerFailure.fromResponse(dioError.response!.statusCode!, dioError.response!.data);
+        return ServerFailure.fromResponse(
+            dioError.response!.statusCode!, dioError.response!.data);
       case DioExceptionType.cancel:
-        return ServerFailure('request with apiServer was canceled');
+        return ServerFailure('Request was cancelled.');
       case DioExceptionType.connectionError:
-        return ServerFailure('connectionError with apiServer');
+        return ServerFailure('Unable to establish a connection. Check your internet.');
       case DioExceptionType.unknown:
-        if(dioError.message!.contains('SocketException')){
-          return ServerFailure('no internet connection');
+        if (dioError.message != null && dioError.message!.contains('SocketException')) {
+          return ServerFailure('No internet connection. Please check your network.');
         }
-        return ServerFailure('unknown');
+        return ServerFailure('An unknown error occurred. Please try again.');
       default:
-        return ServerFailure('oops there was an error, please try later');
+        return ServerFailure('Unexpected error occurred. Please try later.');
     }
   }
 
-  factory ServerFailure.fromResponse(int statusCode, dynamic response){
-    if(statusCode == 400 || statusCode == 401 || statusCode == 403){
-      return ServerFailure(response['error']['message']);
-    } else if(statusCode == 404){
-      return ServerFailure('Your request not found, please try later!');
-    } else if(statusCode == 500){
-      return ServerFailure('Internal server error, please try later!');
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 400 || statusCode == 401 || statusCode == 403 || statusCode == 422) {
+      return ServerFailure('Invalid credentials. Please check your email and password.');
+    } else if (statusCode == 404) {
+      return ServerFailure('Requested resource not found.');
+    } else if (statusCode == 500) {
+      return ServerFailure('Server error. Please try again later.');
     } else {
-      return ServerFailure('oops there was an error');
+      return ServerFailure('Unexpected error occurred. Please try again.');
     }
   }
 }
+

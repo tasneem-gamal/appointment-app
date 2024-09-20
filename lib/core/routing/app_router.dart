@@ -6,6 +6,8 @@ import 'package:appointment_app/feature/on_boarding_view/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../feature/home/ui/home_view.dart';
+
 class AppRouter {
   Route generateRoutes(RouteSettings settings) {
     // arg to be passed
@@ -13,6 +15,8 @@ class AppRouter {
     switch (settings.name) {
       case Routes.onBoardingView:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
+      case Routes.homeView:
+        return MaterialPageRoute(builder: (_) => const HomeView());
       case Routes.loginView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(

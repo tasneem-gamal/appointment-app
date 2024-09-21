@@ -1,5 +1,4 @@
 
-import 'package:appointment_app/core/networking/api_handling_error.dart';
 import 'package:appointment_app/feature/login/data/models/login_request_body.dart';
 import 'package:appointment_app/feature/login/data/models/login_response_body.dart';
 import 'package:appointment_app/feature/login/data/repo/login_repo.dart';

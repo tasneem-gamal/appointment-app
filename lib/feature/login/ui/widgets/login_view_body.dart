@@ -28,7 +28,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const UpperTextTitle(),
+            const UpperTextTitle(
+              mainTitle: 'Welcome Back',
+              subTitle: "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+            ),
             SizedBox(height: 36.h),
             const FormFieldSection(),
             SizedBox(height: 24.h),

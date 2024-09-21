@@ -5,15 +5,16 @@ import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
 class UpperTextTitle extends StatelessWidget {
-  const UpperTextTitle({super.key});
-
+  const UpperTextTitle({super.key, required this.mainTitle, required this.subTitle});
+  final String mainTitle;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Welcome Back',
+          mainTitle,
           style:
               Styles.textStyle24.copyWith(color: ColorsManager.kPrimaryColor),
         ),
@@ -21,7 +22,7 @@ class UpperTextTitle extends StatelessWidget {
           height: 8.h,
         ),
         Text(
-          "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+          subTitle,
           style:
               Styles.textStyle14.copyWith(color: ColorsManager.kGreytextColor),
         ),

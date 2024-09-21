@@ -3,6 +3,7 @@ import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/login_view.dart';
 import 'package:appointment_app/feature/on_boarding_view/on_boarding_view.dart';
+import 'package:appointment_app/feature/sign_up/ui/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +18,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.homeView:
         return MaterialPageRoute(builder: (_) => const HomeView());
+      case Routes.signUpView:
+        return MaterialPageRoute(builder: (_) => const SignUpView());
       case Routes.loginView:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(

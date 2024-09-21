@@ -1,3 +1,5 @@
+import 'package:appointment_app/core/helpers/extension.dart';
+import 'package:appointment_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/colors.dart';
@@ -20,7 +22,9 @@ class AlreadyHaveAccountSection extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routes.signUpView);
+          },
           style: TextButton.styleFrom(
             padding: const EdgeInsets.only(left: 5),
             minimumSize: const Size(0, 0),

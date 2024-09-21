@@ -1,6 +1,9 @@
+import 'package:appointment_app/feature/sign_up/logic/sign_cubit/sign_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 
 class FormFieldSignSection extends StatefulWidget {
@@ -12,6 +15,33 @@ class FormFieldSignSection extends StatefulWidget {
 
 class _FormFieldSignSectionState extends State<FormFieldSignSection> {
   bool isObsecureText = true;
+    bool hasLowercase = false;
+  bool hasUppercase = false;
+  bool hasSpecialCharacters = false;
+  bool hasNumber = false;
+  bool hasMinLength = false;
+
+  late TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordController = context.read<SignCubit>().passwordController;
+    setupPasswordControllerListener();
+  }
+
+  void setupPasswordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasLowercase = AppRegex.hasLowerCase(passwordController.text);
+        hasUppercase = AppRegex.hasUpperCase(passwordController.text);
+        hasSpecialCharacters =
+            AppRegex.hasSpecialCharacter(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +50,24 @@ class _FormFieldSignSectionState extends State<FormFieldSignSection> {
         children: [
           CustomTextFormField(
             hintText: 'Email', 
-            validator: (value) {}
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid email';
+              }
+            },
+            controller: context.read<SignCubit>().emailController,
           ),
           SizedBox(
             height: 16.h,
           ),
           CustomTextFormField(
             hintText: 'Password',
-            validator: (value) {},
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+            },
+            controller: context.read<SignCubit>().passwordController,
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -41,6 +81,17 @@ class _FormFieldSignSectionState extends State<FormFieldSignSection> {
             isObsecureText: isObsecureText,
           ),
           SizedBox(height: 16.h,),
+          CustomTextFormField(
+            hintText: 'phone', 
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPhoneNumberValid(value)) {
+                return 'Please enter a valid phone number';
+              }
+            },
+            controller: context.read<SignCubit>().phoneController,
+          ),
         ],
       ),
     );

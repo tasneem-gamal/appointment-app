@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/custom_button.dart';
-import 'already_have_account.dart';
+import 'dont_have_an_account.dart';
 import 'form_field_section.dart';
 import 'terms_condition_section_login_view.dart';
 import 'upper_text_title.dart';
@@ -49,7 +49,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             SizedBox(height: 32.h),
             const TermsConditionSection(),
             SizedBox(height: 24.h),
-            const AlreadyHaveAccountSection(),
+            const DontHaveAnAccount(),
             const LoginBlocListener()
           ],
         ),

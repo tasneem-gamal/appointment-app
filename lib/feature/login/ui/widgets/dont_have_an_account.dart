@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
 
-class AlreadyHaveAccountSection extends StatelessWidget {
-  const AlreadyHaveAccountSection({
+class DontHaveAnAccount extends StatelessWidget {
+  const DontHaveAnAccount({
     super.key,
   });
 
@@ -16,7 +16,7 @@ class AlreadyHaveAccountSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Already have an account yet?',
+          "Don't have an account?",
           style: Styles.textStyle12.copyWith(
             color: ColorsManager.k12SizeColorGreyShade,
           ),

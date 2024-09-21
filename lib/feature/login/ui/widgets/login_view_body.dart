@@ -1,4 +1,3 @@
-import 'package:appointment_app/feature/login/data/models/login_request_body.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/widgets/login_bloc_listner.dart';
 import 'package:flutter/material.dart';
@@ -64,12 +63,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       setState(() {
         errorMessage = null; 
       });
-      context.read<LoginCubit>().emitLoginStates(
-        LoginRequestBody(
-          email: context.read<LoginCubit>().emailController.text, 
-          password: context.read<LoginCubit>().passwordController.text, 
-        )
-      );
+      context.read<LoginCubit>().emitLoginStates();
     } else {
       setState(() {
         errorMessage = 'Please fill in all fields correctly.';

@@ -22,9 +22,11 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  void emitLoginStates(LoginRequestBody loginRequestBody) async {
+  void emitLoginStates() async {
     emit(LoginStateLoading());
-    final respose = await loginRepo.userLogin(loginRequestBody);
+    final respose = await loginRepo.userLogin(
+      LoginRequestBody(email: emailController.text, password: passwordController.text)
+    );
     respose.fold((failure) {
       emit(LoginStateFailure(failure.errMessage));
     }, (loginSuccess) {

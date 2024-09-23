@@ -16,11 +16,14 @@ class PasswordValidation extends StatelessWidget {
   }
 
   Widget buildValidation(String text, bool hasValidated){
-    return Text(
-      text,
-      style: Styles.textStyle12.copyWith(
-        color: ColorsManager.k12SizeColorGreyShade,
-        decorationColor: hasValidated ? ColorsManager.k12SizeColorGreyShade : Colors.red,
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        text,
+        style: Styles.textStyle12.copyWith(
+          color: ColorsManager.k12SizeColorGreyShade,
+          decorationColor: hasValidated ? ColorsManager.k12SizeColorGreyShade : Colors.red,
+        ),
       ),
     );
   }

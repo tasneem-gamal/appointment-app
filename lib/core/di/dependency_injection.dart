@@ -12,13 +12,9 @@ void setupGetIt(){
   getIt.registerSingleton<LoginRepo>(LoginRepo(
     getIt.get<ApiService>()
   ));
-  getIt.registerSingleton<LoginCubit>(LoginCubit(
-    getIt.get<LoginRepo>()
-  ));
+  getIt.registerFactory<LoginCubit>(()=> LoginCubit(getIt()));
   getIt.registerSingleton<SignRepo>(SignRepo(
     getIt.get<ApiService>()
   ));
-  getIt.registerSingleton<SignCubit>(SignCubit(
-    getIt.get<SignRepo>()
-  ));
+  getIt.registerFactory<SignCubit>(() => SignCubit(getIt()));
 }

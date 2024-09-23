@@ -14,7 +14,7 @@ class SignRepo {
   Future<Either<Failure, SignResponseBody>> userSign(
       SignRequestBody signRequestBody) async {
     try {
-      final response = await apiService.signUp(SignRequestBody as SignRequestBody);
+      final response = await apiService.signUp(signRequestBody);
       return right(response);
     } catch (e) {
       if (e is DioException) {

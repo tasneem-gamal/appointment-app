@@ -14,9 +14,12 @@ class SignCubit extends Cubit<SignState> {
   SignCubit(this.signRepo) : super(SignInitial());
 
   final SignRepo signRepo;
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmationController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -26,12 +29,15 @@ class SignCubit extends Cubit<SignState> {
     return super.close();
   }
 
-  Future<void> emitSignState(SignRequestBody signRequestBody) async {
+  Future<void> emitSignState() async {
     emit(SignLoading());
     final response = await signRepo.userSign(
       SignRequestBody(
+        name: nameController.text, 
         email: emailController.text, 
+        gender: 0, 
         password: passwordController.text, 
+        passwordConfirmation: passwordConfirmationController.text, 
         phoneNumber: phoneController.text
       )
     );
@@ -40,7 +46,7 @@ class SignCubit extends Cubit<SignState> {
         emit(SignFailure(failure.errMessage));
       }, 
       (success){
-        emit(SignSuccess(SignResponseBody as SignResponseBody));
+        emit(SignSuccess(success));
       }
     );
   }

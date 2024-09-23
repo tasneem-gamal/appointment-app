@@ -17,10 +17,10 @@ class ApiService {
     return LoginResponseBody.fromJson(response.data);
   }
 
-  Future<SignResponseBody> signUp(SignRequestBody signResponseBody) async {
+  Future<SignResponseBody> signUp(SignRequestBody signRequestBody) async {
     final response = await dio.post(
         '${ApiConstants.baseUrl}${ApiConstants.signUp}',
-        data: signResponseBody.toJson());
+        data: signRequestBody.toJson());
     return SignResponseBody.fromJson(response.data);
   }
 }

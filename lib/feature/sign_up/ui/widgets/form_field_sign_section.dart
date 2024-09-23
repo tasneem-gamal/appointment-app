@@ -1,3 +1,4 @@
+import 'package:appointment_app/feature/login/ui/widgets/password_validation.dart';
 import 'package:appointment_app/feature/sign_up/logic/sign_cubit/sign_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,10 @@ class FormFieldSignSection extends StatefulWidget {
 
 class _FormFieldSignSectionState extends State<FormFieldSignSection> {
   bool isObsecureText = true;
-    bool hasLowercase = false;
+  bool isPasswordConfirmationObscureText = true;
+
+
+  bool hasLowercase = false;
   bool hasUppercase = false;
   bool hasSpecialCharacters = false;
   bool hasNumber = false;
@@ -46,8 +50,31 @@ class _FormFieldSignSectionState extends State<FormFieldSignSection> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: context.read<SignCubit>().formKey,
       child: Column(
         children: [
+          CustomTextFormField(
+            hintText: 'Name', 
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid name';
+              }
+            },
+            controller: context.read<SignCubit>().nameController,
+          ),
+          SizedBox(height: 16.h,),
+          CustomTextFormField(
+            hintText: 'phone', 
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPhoneNumberValid(value)) {
+                return 'Please enter a valid phone number';
+              }
+            },
+            controller: context.read<SignCubit>().phoneController
+          ),
+          SizedBox(height: 16.h,),
           CustomTextFormField(
             hintText: 'Email', 
             validator: (value) {
@@ -80,20 +107,40 @@ class _FormFieldSignSectionState extends State<FormFieldSignSection> {
             ),
             isObsecureText: isObsecureText,
           ),
+          SizedBox(height: 5.h,),
+          PasswordValidation(hasMinLength: hasMinLength),
           SizedBox(height: 16.h,),
           CustomTextFormField(
-            hintText: 'phone', 
+            controller:
+                context.read<SignCubit>().passwordConfirmationController,
+            hintText: 'Password Confirmation',
+            isObsecureText: isPasswordConfirmationObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordConfirmationObscureText =
+                      !isPasswordConfirmationObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordConfirmationObscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+              ),
+            ),
             validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid password';
               }
             },
-            controller: context.read<SignCubit>().phoneController,
           ),
         ],
       ),
     );
+  }
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
   }
 }

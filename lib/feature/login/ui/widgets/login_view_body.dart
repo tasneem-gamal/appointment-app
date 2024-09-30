@@ -23,7 +23,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Constants.appPadding,
+      padding: Constants.loginSignPadding,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

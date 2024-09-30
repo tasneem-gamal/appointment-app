@@ -17,7 +17,7 @@ class SignUpViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Constants.appPadding,
+      padding: Constants.loginSignPadding,
       child: SingleChildScrollView(
         child: Column(
           children: [

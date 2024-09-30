@@ -4,6 +4,7 @@ import 'package:appointment_app/feature/login/ui/widgets/login_bloc_listner.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/custom_button.dart';
 import 'dont_have_an_account.dart';
 import 'form_field_section.dart';
@@ -42,6 +43,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
             SizedBox(height: 8.h),
             CustomButton(
+              textStyle: Styles.textStyle16.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
               btnText: 'Login',
               onPressed: () {
                 validateThenDoLogin(context);

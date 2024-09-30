@@ -1,5 +1,5 @@
 import 'package:appointment_app/constants.dart';
-import 'package:appointment_app/core/theming/colors.dart';
+import 'package:appointment_app/feature/home/ui/widgets/find_nearby_doc_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,8 +16,8 @@ class HomeViewBody extends StatelessWidget {
         child: Column(
           children: [
             const HomeViewAppBar(),
-            SizedBox(height: 30.h,),
-            
+            SizedBox(height: 30.h),
+            const FindNearbyDocContainer()
           ],
         ),
       ),

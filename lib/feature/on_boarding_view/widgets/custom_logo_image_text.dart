@@ -28,7 +28,7 @@ class CustomLogoImageText extends StatelessWidget {
             )
           ),
           child: Image.asset(
-            'assets/images/Image.png',
+            'assets/images/doc_image.png',
           ),
         ),
         Positioned(

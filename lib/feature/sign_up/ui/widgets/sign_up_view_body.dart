@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/theming/styles.dart';
 import 'sign_up_bloc_listner.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -29,6 +30,10 @@ class SignUpViewBody extends StatelessWidget {
             const FormFieldSignSection(),
             SizedBox(height: 24.h,),
             CustomButton(
+              textStyle: Styles.textStyle16.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
               btnText: 'Sign Up',
               onPressed: (){
                 validateThenDoSign(context);

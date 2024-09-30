@@ -26,8 +26,12 @@ class OnboardingTextAndButton extends StatelessWidget {
           ),
           SizedBox(height: 16.h,),
           CustomButton(
+            textStyle: Styles.textStyle16.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
             btnText: 'Get Started',
-            onPressed: (){
+            onPressed: () {
               context.pushNamed(Routes.loginView);
             },
           )

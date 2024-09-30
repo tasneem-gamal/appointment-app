@@ -66,7 +66,6 @@ class FindNearbyDocContainer extends StatelessWidget {
             child: Image.asset(
               'assets/images/home_image.png',
               height: 202.h,
-              width: 140.h,
               fit: BoxFit.cover,
             ),
           ),

@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
           children: [
             const HomeViewAppBar(),
             SizedBox(height: 30.h),
-            const FindNearbyDocContainer()
+            const FindNearbyDocContainer(),
           ],
         ),
       ),

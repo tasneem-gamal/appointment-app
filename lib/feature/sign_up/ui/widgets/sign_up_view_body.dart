@@ -1,3 +1,4 @@
+import 'package:appointment_app/constants.dart';
 import 'package:appointment_app/core/widgets/custom_button.dart';
 import 'package:appointment_app/feature/login/ui/widgets/terms_condition_section_login_view.dart';
 import 'package:appointment_app/feature/login/ui/widgets/upper_text_title.dart';
@@ -16,7 +17,7 @@ class SignUpViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 30.h, right: 30.h, top: 60.h),
+      padding: Constants.appPadding,
       child: SingleChildScrollView(
         child: Column(
           children: [

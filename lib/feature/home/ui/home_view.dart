@@ -1,3 +1,4 @@
+import 'package:appointment_app/feature/home/ui/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,10 +6,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('home'),
-      ),
+    return const Scaffold(
+      body: SafeArea(child: HomeViewBody()),
     );
   }
 }

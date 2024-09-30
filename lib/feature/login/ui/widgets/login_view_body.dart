@@ -1,3 +1,4 @@
+import 'package:appointment_app/constants.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/widgets/login_bloc_listner.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 30.h, right: 30.h, top: 60.h),
+      padding: Constants.appPadding,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

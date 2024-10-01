@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/theming/colors.dart';
@@ -12,6 +13,7 @@ class HomeViewAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       title: Text(
         'Hi, Omar!',
         style: Styles.textStyle18.copyWith(
@@ -22,17 +24,20 @@ class HomeViewAppBar extends StatelessWidget {
         'How are you today?',
         style: Styles.textStyle12,
       ),
-      trailing: GestureDetector(
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: ColorsManager.kNotifiBackgroundGrey,
-            borderRadius: BorderRadius.circular(48),
-          ),
-          child: const Icon(
-              FontAwesomeIcons.bell,
-              size: 24,
+      trailing: Padding(
+        padding: EdgeInsets.only(right: 16.h),
+        child: GestureDetector(
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: ColorsManager.kNotifiBackgroundGrey,
+              borderRadius: BorderRadius.circular(48),
             ),
+            child: const Icon(
+                FontAwesomeIcons.bell,
+                size: 24,
+              ),
+          ),
         ),
       )
     );

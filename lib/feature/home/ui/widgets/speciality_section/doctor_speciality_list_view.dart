@@ -1,4 +1,4 @@
-import 'package:appointment_app/feature/home/ui/widgets/doctor_specility_item.dart';
+import 'package:appointment_app/feature/home/ui/widgets/speciality_section/doctor_specility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,9 +11,9 @@ class DoctorSpecialityListView extends StatelessWidget {
       height: 86.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: 4,
+        itemCount: 8,
         itemBuilder: (context, index) => const DoctorSpecilityItem(),
-        separatorBuilder: (context, index) => SizedBox(width: 20.w,),
+        separatorBuilder: (context, index) => SizedBox(width: 16.w,),
       ),
     );
   }

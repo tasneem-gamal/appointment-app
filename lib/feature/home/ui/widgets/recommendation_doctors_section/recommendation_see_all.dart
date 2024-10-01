@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/styles.dart';
+import '../../../../../core/theming/colors.dart';
+import '../../../../../core/theming/styles.dart';
 
-class DoctorSpecilitySeeAll extends StatelessWidget {
-  const DoctorSpecilitySeeAll({super.key});
+class RecommendationSeeAll extends StatelessWidget {
+  const RecommendationSeeAll({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class DoctorSpecilitySeeAll extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Doctor Speciality',
+          'Recommendation Doctor',
           style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w600),
         ),
         TextButton(

@@ -13,7 +13,7 @@ class DoctorSpecialityListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 4,
         itemBuilder: (context, index) => const DoctorSpecilityItem(),
-        separatorBuilder: (context, index) => SizedBox(width: 18.w,),
+        separatorBuilder: (context, index) => SizedBox(width: 20.w,),
       ),
     );
   }

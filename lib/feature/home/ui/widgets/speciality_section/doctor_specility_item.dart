@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
@@ -12,14 +12,14 @@ class DoctorSpecilityItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: 56.h,
-          height: 56.h,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: ColorsManager.kNotifiBackgroundGrey,
+        CircleAvatar(
+          radius: 35,
+          backgroundColor: ColorsManager.kNotifiBackgroundGrey,
+          child: SvgPicture.asset(
+            'assets/svgs/logo.svg',
+            width: 24.w,
+            height: 24.h,
           ),
-          child: const Icon(FontAwesomeIcons.stethoscope),
         ),
         SizedBox(
           height: 12.h,

@@ -28,51 +28,53 @@ class RecommendationDoctorsItem extends StatelessWidget {
           SizedBox(
             width: 16.h,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Dr. Randy Wigham',
-                style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w700),
-              ),
-              SizedBox(
-                height: 8.h,
-              ),
-              Text('General | RSUD Gatot Subroto',
-                  style: Styles.textStyle12.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: ColorsManager.kGreytextColor)),
-              SizedBox(
-                height: 12.h,
-              ),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  SizedBox(
-                    width: 4.w,
-                  ),
-                  Text(
-                    '4.8',
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Dr. Randy Wigham',
+                  style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: 8.h,
+                ),
+                Text('General | RSUD Gatot Subroto',
                     style: Styles.textStyle12.copyWith(
                         fontWeight: FontWeight.w500,
-                        color: ColorsManager.kGreytextColor),
-                  ),
-                  SizedBox(
-                    width: 4.w,
-                  ),
-                  Text(
-                    '(4,279 reviews)',
-                    style: Styles.textStyle12.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: ColorsManager.kGreytextColor),
-                  )
-                ],
-              )
-            ],
+                        color: ColorsManager.kGreytextColor)),
+                SizedBox(
+                  height: 12.h,
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    SizedBox(
+                      width: 4.w,
+                    ),
+                    Text(
+                      '4.8',
+                      style: Styles.textStyle12.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: ColorsManager.kGreytextColor),
+                    ),
+                    SizedBox(
+                      width: 4.w,
+                    ),
+                    Text(
+                      '(4,279 reviews)',
+                      style: Styles.textStyle12.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: ColorsManager.kGreytextColor),
+                    )
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),

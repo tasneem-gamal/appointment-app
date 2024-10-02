@@ -8,21 +8,22 @@ class HomeApiService {
 
   HomeApiService(this.dio);
 
-Future<SpecializationsResponseModel> getSpecialization() async {
-  try {
-    final response = await dio.get(
-      '${ApiConstants.baseUrl}${HomeApiConstants.specilityEndpoint}',
-    );
-    print(response.data);
-    print('API Response: ${response.data}'); 
+  Future<SpecializationsResponseModel> getSpecialization() async {
+    const String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzI3NzgyNDc1LCJleHAiOjE3Mjc4Njg4NzUsIm5iZiI6MTcyNzc4MjQ3NSwianRpIjoiOFFKMGV6SXR2bXNBMmNzYiIsInN1YiI6IjIzNDAiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ekk8Iiq-VsCVVpq0ay-1NEysuFyaiAJyXbWwVtKTnFE';
 
-    if (response.statusCode == 200) {
+    try {
+      final response = await dio.get(
+        '${ApiConstants.baseUrl}${HomeApiConstants.specilityEndpoint}',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+          },
+        ),
+      );
+
       return SpecializationsResponseModel.fromJson(response.data);
-    } else {
-      throw Exception('Failed to load specializations: ${response.statusCode}');
+    } catch (error) {
+      throw Exception('Failed to load specializations: $error');
     }
-  } catch (error) {
-    throw Exception('Failed to load specializations: $error');
   }
-}
 }

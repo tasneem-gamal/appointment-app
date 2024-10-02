@@ -1,16 +1,26 @@
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:appointment_app/feature/home/ui/widgets/recommendation_doctors_section/recommendation_doctors_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecommendationDoctorsListView extends StatelessWidget {
-  const RecommendationDoctorsListView({super.key});
-
+  const RecommendationDoctorsListView({super.key, this.doctorsList});
+  
+  final List<Doctor>? doctorsList;
   @override
   Widget build(BuildContext context) {
+    if (doctorsList == null || doctorsList!.isEmpty) {
+      return const Center(
+        child: Text('No doctors available'),
+      );
+    }
+
     return ListView.separated(
-      itemBuilder: (context, index) => const RecommendationDoctorsItem(), 
+      itemBuilder: (context, index) => RecommendationDoctorsItem(
+        doctorsModel: doctorsList![index],
+      ), 
       separatorBuilder: (context, index) => SizedBox(height: 16.h,), 
-      itemCount: 9,
+      itemCount: doctorsList!.length,
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
     );

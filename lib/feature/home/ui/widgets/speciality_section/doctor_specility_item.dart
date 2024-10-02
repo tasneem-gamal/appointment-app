@@ -1,41 +1,33 @@
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
-import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart'; // Import your model
 
 class DoctorSpecilityItem extends StatelessWidget {
-  final SpecializationData specialization; 
-
   const DoctorSpecilityItem({
-    super.key,
-    required this.specialization, 
+    super.key, required this.specializationData,
   });
-
+  
+  final SpecializationData specializationData;
+  
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CircleAvatar(
-          radius: 35,
-          backgroundColor: ColorsManager.kNotifiBackgroundGrey,
-          child: specialization.doctorsList != null && specialization.doctorsList!.isNotEmpty
-              ? SvgPicture.network(
-                  specialization.doctorsList![0].photo ?? 'assets/svgs/logo.svg',
-                  width: 24.w,
-                  height: 24.h,
-                )
-              : SvgPicture.asset(
-                  'assets/svgs/logo.svg',
-                  width: 24.w,
-                  height: 24.h,
-                ),
-        ),
+            radius: 35,
+            backgroundColor: ColorsManager.kNotifiBackgroundGrey,
+            child: SvgPicture.network(
+              'assets/svgs/doc_iocn.svg',
+              width: 24.w,
+              height: 24.h,
+            )),
         SizedBox(height: 12.h),
         Text(
-          specialization.name ?? 'General', 
+          specializationData.name ?? 'Dermatology',
           style: Styles.textStyle12,
         ),
       ],

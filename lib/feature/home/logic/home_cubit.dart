@@ -9,25 +9,21 @@ class HomeCubit extends Cubit<HomeState> {
 
   final HomeRepo homeRepo;
 
-  List<SpecializationData>? specializationList = [];
-
-  void getSpecialization() async {
+  void getSpecializations() async {
   emit(SpecializationStateLoading());
-  final response = await homeRepo.getSpecialization();
-
+  final response = await homeRepo.getSpcialization();
   response.fold(
     (failure) {
+      print('Error: ${failure.errMessage}');
       emit(SpecializationStateFailure(failure.errMessage));
-      print('Error: ${failure.errMessage}'); // Debug log
-    },
-    (success) {
-      final specializationsResponse = success;
-      specializationList = specializationsResponse.specializationDataList;
-      print('Fetched specializations: $specializationList'); // Debug log
-      emit(SpecializationStateSuccess(specializationList));
-    },
+    }, 
+    (specializationResponseModel) {
+      print('Success: ${specializationResponseModel.specializationDataList}');
+      emit(SpecializationStateSuccess(specializationResponseModel));
+    }
   );
 }
+
 }
 
 

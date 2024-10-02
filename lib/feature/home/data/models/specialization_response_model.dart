@@ -6,13 +6,22 @@ class SpecializationsResponseModel {
   });
 
   factory SpecializationsResponseModel.fromJson(Map<String, dynamic> json) {
-    var specializationDataJson = json['data'] as List?;
-    List<SpecializationData>? specializationDataList = specializationDataJson?.map((spec) => SpecializationData.fromJson(spec)).toList();
-
-    return SpecializationsResponseModel(
-      specializationDataList: specializationDataList,
-    );
+  var specializationDataJson = json['data'] as List?;
+  
+  if (specializationDataJson == null) {
+    return SpecializationsResponseModel(specializationDataList: []);
   }
+
+  List<SpecializationData>? specializationDataList = specializationDataJson
+      .map((spec) => SpecializationData.fromJson(spec))
+      .toList();
+
+
+  return SpecializationsResponseModel(
+    specializationDataList: specializationDataList,
+  );
+}
+
 }
 
 class SpecializationData {
@@ -36,7 +45,13 @@ class SpecializationData {
       doctorsList: doctorsList,
     );
   }
+
+  @override
+  String toString() {
+    return 'SpecializationData(id: $id, name: $name, doctorsList: ${doctorsList?.length} doctors)';
+  }
 }
+
 
 class Doctor {
   int? id;

@@ -8,14 +8,13 @@ class HomeRepo {
 
   HomeRepo(this.homeApiService);
 
-  Future<Either<Failure, SpecializationsResponseModel>> getSpecialization() async {
-  try {
-    final response = await homeApiService.getSpecialization();
-    return right(response);
-  } catch (e) {
-    print('Error fetching specializations: $e'); // Add logging here
-    return left(ServerFailure('An unexpected error occurred. Please try again.'));
-  } 
-}
-
+  Future<Either<Failure, SpecializationsResponseModel>>
+      getSpcialization() async {
+    try {
+      final response = await homeApiService.getSpecialization();
+      return right(response);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

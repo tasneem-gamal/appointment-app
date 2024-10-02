@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'home_state.dart';
 
 
-class SpecilizationCubit extends Cubit<SpecializationState> {
-  SpecilizationCubit(this.homeRepo): super(SpecializationStateInitial());
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit(this.homeRepo): super(SpecializationStateInitial());
 
   final HomeRepo homeRepo;
 

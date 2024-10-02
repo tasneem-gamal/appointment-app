@@ -1,37 +1,54 @@
-class SpecializationResponseModel {
+class SpecializationsResponseModel {
+  List<SpecializationData>? specializationDataList;
+
+  SpecializationsResponseModel({
+    this.specializationDataList,
+  });
+
+  factory SpecializationsResponseModel.fromJson(Map<String, dynamic> json) {
+    var specializationDataJson = json['data'] as List?;
+    List<SpecializationData>? specializationDataList = specializationDataJson?.map((spec) => SpecializationData.fromJson(spec)).toList();
+
+    return SpecializationsResponseModel(
+      specializationDataList: specializationDataList,
+    );
+  }
+}
+
+class SpecializationData {
   int? id;
   String? name;
-  List<Doctors>? doctorsList;
+  List<Doctor>? doctorsList;
 
-  SpecializationResponseModel({
+  SpecializationData({
     this.id,
     this.name,
     this.doctorsList,
   });
 
-  factory SpecializationResponseModel.fromJson(Map<String, dynamic> json) {
-    var doctorsListJson = json['data']['doctors'] as List?; 
-    List<Doctors>? doctors = doctorsListJson?.map((doc) => Doctors.fromJson(doc)).toList();
+  factory SpecializationData.fromJson(Map<String, dynamic> json) {
+    var doctorsListJson = json['doctors'] as List?;
+    List<Doctor>? doctorsList = doctorsListJson?.map((doc) => Doctor.fromJson(doc)).toList();
 
-    return SpecializationResponseModel(
-      id: json['data']['id'],
-      name: json['data']['name'],
-      doctorsList: doctors,
+    return SpecializationData(
+      id: json['id'],
+      name: json['name'],
+      doctorsList: doctorsList,
     );
   }
 }
 
-class Doctors {
+class Doctor {
   int? id;
   String? name;
   String? email;
-  String? phoneNumber; 
+  String? phoneNumber;
   String? photo;
   String? gender;
   int? price;
   String? degree;
 
-  Doctors({
+  Doctor({
     this.id,
     this.name,
     this.email,
@@ -42,12 +59,12 @@ class Doctors {
     this.degree,
   });
 
-  factory Doctors.fromJson(Map<String, dynamic> json) {
-    return Doctors(
-      id: json['id'],  
+  factory Doctor.fromJson(Map<String, dynamic> json) {
+    return Doctor(
+      id: json['id'],
       name: json['name'],
       email: json['email'],
-      phoneNumber: json['phone'], 
+      phoneNumber: json['phone'],
       photo: json['photo'],
       gender: json['gender'],
       price: json['appoint_price'],

@@ -4,9 +4,15 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theming/colors.dart';
 import '../../../../../core/theming/styles.dart';
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart'; // Import your model
 
 class DoctorSpecilityItem extends StatelessWidget {
-  const DoctorSpecilityItem({super.key});
+  final SpecializationData specialization; 
+
+  const DoctorSpecilityItem({
+    super.key,
+    required this.specialization, 
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +21,23 @@ class DoctorSpecilityItem extends StatelessWidget {
         CircleAvatar(
           radius: 35,
           backgroundColor: ColorsManager.kNotifiBackgroundGrey,
-          child: SvgPicture.asset(
-            'assets/svgs/logo.svg',
-            width: 24.w,
-            height: 24.h,
-          ),
+          child: specialization.doctorsList != null && specialization.doctorsList!.isNotEmpty
+              ? SvgPicture.network(
+                  specialization.doctorsList![0].photo ?? 'assets/svgs/logo.svg',
+                  width: 24.w,
+                  height: 24.h,
+                )
+              : SvgPicture.asset(
+                  'assets/svgs/logo.svg',
+                  width: 24.w,
+                  height: 24.h,
+                ),
         ),
-        SizedBox(
-          height: 12.h,
-        ),
+        SizedBox(height: 12.h),
         Text(
-          'General',
+          specialization.name ?? 'General', 
           style: Styles.textStyle12,
-        )
+        ),
       ],
     );
   }

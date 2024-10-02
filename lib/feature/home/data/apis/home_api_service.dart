@@ -8,10 +8,21 @@ class HomeApiService {
 
   HomeApiService(this.dio);
 
-  Future<SpecializationResponseModel> getSpecialization() async{
+Future<SpecializationsResponseModel> getSpecialization() async {
+  try {
     final response = await dio.get(
-      '${ApiConstants.baseUrl}${HomeApiConstants.specilityEndpoint}'
+      '${ApiConstants.baseUrl}${HomeApiConstants.specilityEndpoint}',
     );
-    return SpecializationResponseModel.fromJson(response.data);
+    print(response.data);
+    print('API Response: ${response.data}'); 
+
+    if (response.statusCode == 200) {
+      return SpecializationsResponseModel.fromJson(response.data);
+    } else {
+      throw Exception('Failed to load specializations: ${response.statusCode}');
+    }
+  } catch (error) {
+    throw Exception('Failed to load specializations: $error');
   }
+}
 }

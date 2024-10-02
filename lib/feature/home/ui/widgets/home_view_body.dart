@@ -1,7 +1,7 @@
 import 'package:appointment_app/constants.dart';
 import 'package:appointment_app/feature/home/ui/widgets/recommendation_doctors_section/recommendation_doctors_list_view.dart';
-import 'package:appointment_app/feature/home/ui/widgets/speciality_section/doctor_speciality_list_view.dart';
 import 'package:appointment_app/feature/home/ui/widgets/find_nearby_doc_container.dart';
+import 'package:appointment_app/feature/home/ui/widgets/speciality_section/doctor_specility_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +25,8 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 24.h),
             const DoctorSpecilitySeeAll(),
             SizedBox(height: 16.h),
-            const DoctorSpecialityListView(),
+            //const DoctorSpecialityListView(),
+            const DoctorSpecilityBlocBuilder(),
             SizedBox(height: 16.h,),
             const RecommendationSeeAll(),
             SizedBox(height: 12.h,),

@@ -14,7 +14,7 @@ class HomeViewAppBar extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(
-        'Hi, Omar!',
+        'Hi, Tasneem!',
         style: Styles.textStyle18.copyWith(
           fontWeight: FontWeight.w700
         ),

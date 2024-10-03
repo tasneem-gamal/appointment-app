@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 24.h),
             const DoctorSpecilitySeeAll(),
             SizedBox(height: 16.h),
-            const DoctorSpecilityBlocBuilder()
+            const DoctorSpecilityBlocBuilder(),
           ],
         ),
       ),

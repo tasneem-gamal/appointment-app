@@ -14,11 +14,9 @@ class HomeCubit extends Cubit<HomeState> {
   final response = await homeRepo.getSpcialization();
   response.fold(
     (failure) {
-      print('Error: ${failure.errMessage}');
       emit(SpecializationStateFailure(failure.errMessage));
     }, 
     (specializationResponseModel) {
-      print('Success: ${specializationResponseModel.specializationDataList}');
       emit(SpecializationStateSuccess(specializationResponseModel));
     }
   );

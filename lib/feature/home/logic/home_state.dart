@@ -13,3 +13,4 @@ class SpecializationStateFailure extends HomeState{
 
   SpecializationStateFailure(this.errMessage);
 }
+

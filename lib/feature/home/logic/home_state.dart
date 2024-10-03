@@ -14,3 +14,13 @@ class SpecializationStateFailure extends HomeState{
   SpecializationStateFailure(this.errMessage);
 }
 
+class DoctorsSuccess extends HomeState{
+  final List<Doctor> doctorsList;
+
+  DoctorsSuccess(this.doctorsList);
+}
+class DoctorsFailure extends HomeState{
+  final String errMessage;
+
+  DoctorsFailure(this.errMessage);
+}

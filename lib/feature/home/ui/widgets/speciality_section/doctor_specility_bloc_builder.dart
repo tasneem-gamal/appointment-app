@@ -23,7 +23,7 @@ class DoctorSpecilityBlocBuilder extends StatelessWidget {
             return const SizedBox(
               height: 100,
               child: Center(
-                child: CircularProgressIndicator(),
+                // child: CircularProgressIndicator(),
               ),
             );
           } else if (state is SpecializationStateSuccess) {
@@ -53,7 +53,12 @@ class DoctorSpecilityBlocBuilder extends StatelessWidget {
                 )
               ],
             );
-          } else {
+          } else if(state is SpecializationStateFailure){
+            return Center(
+              child:  Text(state.errMessage),
+            );
+          }
+          else {
             return const SizedBox.shrink();
           }
         });

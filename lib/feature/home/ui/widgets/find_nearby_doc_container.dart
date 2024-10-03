@@ -10,6 +10,7 @@ class FindNearbyDocContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Container(
           width: double.infinity,

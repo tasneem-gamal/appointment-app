@@ -21,7 +21,7 @@ class DoctorSpecilityItem extends StatelessWidget {
             radius: 35,
             backgroundColor: ColorsManager.kNotifiBackgroundGrey,
             child: Image.asset(
-              'assets/images/logo.png',
+              'assets/images/logo.png', // the api doesn't have this
               width: 24.w,
               height: 24.h,
             )

@@ -9,7 +9,8 @@ class HomeApiService {
   HomeApiService(this.dio);
 
   Future<SpecializationsResponseModel> getSpecialization() async {
-    const String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzI3ODg0NjQxLCJleHAiOjE3Mjc5NzEwNDEsIm5iZiI6MTcyNzg4NDY0MSwianRpIjoiaWhSZm16MUVJajNOV3hhOCIsInN1YiI6IjIzNTQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xp8uZhH71ANQciniJjI0565C-V2qjD8H8r40Flmb6Fg';
+    // token expires every day
+    const String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzI3OTc0ODMwLCJleHAiOjE3MjgwNjEyMzAsIm5iZiI6MTcyNzk3NDgzMCwianRpIjoibG1qS2RsWlI5UWlhUXBnZiIsInN1YiI6IjIzNjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.1ne0LsF-VRdFWSawRaqE8XG63PrMotJ6XIe5uqs2OvM';
 
     try {
       final response = await dio.get(

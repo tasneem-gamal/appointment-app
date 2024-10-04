@@ -21,7 +21,7 @@ class RecommendationDoctorsItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
-              'assets/images/recom_doc.png',
+              'assets/images/recom_doc.png', // there is no image for doc 
               width: 110.w,
               height: 110.h,
               fit: BoxFit.fill,

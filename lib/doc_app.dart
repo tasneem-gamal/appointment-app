@@ -27,7 +27,7 @@ class DocApp extends StatelessWidget {
           )
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeView,
+        initialRoute: Routes.loginView,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

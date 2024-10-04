@@ -10,7 +10,7 @@ class PasswordValidation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return buildValidation(
-      'At least 8 characters', 
+      'At least 6 characters', 
       hasMinLength
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPreference {
-  SharedPreference._();
+class SharedPreferenceHelper {
+  SharedPreferenceHelper._();
   
   /// remove a value with given key
   static removeData(String key) async {

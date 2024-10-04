@@ -1,4 +1,4 @@
-import 'package:appointment_app/constants.dart';
+import 'package:appointment_app/core/helpers/constants.dart';
 import 'package:appointment_app/feature/home/ui/widgets/find_nearby_doc_container.dart';
 import 'package:appointment_app/feature/home/ui/widgets/speciality_section/doctor_specility_bloc_builder.dart';
 import 'package:flutter/material.dart';

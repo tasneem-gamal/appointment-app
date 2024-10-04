@@ -1,4 +1,4 @@
-import 'package:appointment_app/constants.dart';
+import 'package:appointment_app/core/helpers/constants.dart';
 import 'package:appointment_app/core/widgets/custom_button.dart';
 import 'package:appointment_app/feature/login/ui/widgets/terms_condition_section_login_view.dart';
 import 'package:appointment_app/feature/login/ui/widgets/upper_text_title.dart';

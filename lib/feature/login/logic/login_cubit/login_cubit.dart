@@ -1,4 +1,6 @@
 
+import 'package:appointment_app/core/helpers/constants.dart';
+import 'package:appointment_app/core/helpers/shared_preference.dart';
 import 'package:appointment_app/feature/login/data/models/login_request_body.dart';
 import 'package:appointment_app/feature/login/data/models/login_response_body.dart';
 import 'package:appointment_app/feature/login/data/repo/login_repo.dart';
@@ -29,8 +31,13 @@ class LoginCubit extends Cubit<LoginState> {
     );
     respose.fold((failure) {
       emit(LoginStateFailure(failure.errMessage));
-    }, (loginSuccess) {
+    }, (loginSuccess) async {
+      await saveUserToken(loginSuccess.userData?.token ?? '');
       emit(LoginStateSuccess(loginSuccess));
     });
+  }
+  
+  Future<void> saveUserToken(String token) async {
+    await SharedPreferenceHelper.setData(SharedPreferencesKeys.userToken, token);
   }
 }

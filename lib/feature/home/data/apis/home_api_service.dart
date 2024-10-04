@@ -17,7 +17,7 @@ class HomeApiService {
         '${ApiConstants.baseUrl}${HomeApiConstants.specilityEndpoint}',
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${await SharedPreferenceHelper.getString(SharedPreferencesKeys.userToken)}',
+            'Authorization': 'Bearer ${await SharedPreferenceHelper.getSecuredString(SharedPreferencesKeys.userToken)}',
           },
         ),
       );

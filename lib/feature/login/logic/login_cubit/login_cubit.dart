@@ -38,6 +38,6 @@ class LoginCubit extends Cubit<LoginState> {
   }
   
   Future<void> saveUserToken(String token) async {
-    await SharedPreferenceHelper.setData(SharedPreferencesKeys.userToken, token);
+    await SharedPreferenceHelper.setSecuredString(SharedPreferencesKeys.userToken, token);
   }
 }

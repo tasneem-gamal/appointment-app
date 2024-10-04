@@ -8,11 +8,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 bool isLoggedIn = false;
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   // to fix .sp font size in flutter_screen util in release mode
   ScreenUtil.ensureScreenSize;
+  await checkIfLoggedInUser();
   runApp(DocApp(
     appRouter: AppRouter(),
   ));
@@ -21,8 +22,8 @@ void main() {
 checkIfLoggedInUser() async{
   String? userToken = await SharedPreferenceHelper.getString(SharedPreferencesKeys.userToken);
   if(userToken != null && userToken.isNotEmpty){
-    isLoggedIn = true;
+    Constants.isLoggedIn = true;
   } else {
-    isLoggedIn = false;
+    Constants.isLoggedIn = false;
   }
 }

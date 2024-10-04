@@ -4,6 +4,8 @@ import 'package:appointment_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/helpers/constants.dart';
+
 class DocApp extends StatelessWidget {
   const DocApp({super.key, required this.appRouter});
   final AppRouter appRouter;
@@ -27,7 +29,7 @@ class DocApp extends StatelessWidget {
           )
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.loginView,
+        initialRoute: Constants.isLoggedIn ? Routes.homeView : Routes.loginView,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

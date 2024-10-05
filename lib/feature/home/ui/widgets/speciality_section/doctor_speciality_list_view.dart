@@ -1,12 +1,22 @@
 import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
+import 'package:appointment_app/feature/home/logic/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:appointment_app/feature/home/ui/widgets/speciality_section/doctor_specility_item.dart';
 
-class DoctorSpecialityListView extends StatelessWidget {
+class DoctorSpecialityListView extends StatefulWidget {
 
   const DoctorSpecialityListView({super.key, required this.specializationDataList});
   final List<SpecializationData> specializationDataList;
+
+  @override
+  State<DoctorSpecialityListView> createState() => _DoctorSpecialityListViewState();
+}
+
+class _DoctorSpecialityListViewState extends State<DoctorSpecialityListView> {
+  
+  var selectedSpcializationIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +24,21 @@ class DoctorSpecialityListView extends StatelessWidget {
       height: 86.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: specializationDataList.length,
-        itemBuilder: (context, index) => DoctorSpecilityItem(
-          specializationData: specializationDataList[index],
+        itemCount: widget.specializationDataList.length,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: (){
+            setState(() {
+              selectedSpcializationIndex = index;
+            });
+            context.read<HomeCubit>().getDoctorsList(
+              specializationId: widget.specializationDataList[index].id
+            );
+          },
+          child: DoctorSpecilityItem(
+            specializationData: widget.specializationDataList[index],
+            selectedIndex: selectedSpcializationIndex,
+            itemIndex: index,
+          ),
         ),
         separatorBuilder: (context, index) => SizedBox(width: 16.w),
       ),

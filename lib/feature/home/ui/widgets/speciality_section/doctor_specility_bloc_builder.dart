@@ -33,11 +33,11 @@ class DoctorSpecilityBlocBuilder extends StatelessWidget {
 
   SizedBox getSpecilitySection(SpecializationStateSuccess state) {
     var specializationList =
-        state.specializationsResponseModel.specializationDataList;
+        state.specializationData;
     return SizedBox(
       height: 86.h,
       child: DoctorSpecialityListView(
-        specializationDataList: specializationList ?? [],
+        specializationDataList: specializationList
       ),
     );
   }

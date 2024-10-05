@@ -4,9 +4,9 @@ class HomeState {}
 class SpecializationStateInitial extends HomeState{}
 class SpecializationStateLoading extends HomeState{}
 class SpecializationStateSuccess extends HomeState {
-  final SpecializationsResponseModel specializationsResponseModel;
+  final List<SpecializationData> specializationData;
 
-  SpecializationStateSuccess(this.specializationsResponseModel);
+  SpecializationStateSuccess(this.specializationData);
 }
 class SpecializationStateFailure extends HomeState{
   final String errMessage;

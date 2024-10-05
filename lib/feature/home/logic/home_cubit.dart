@@ -8,7 +8,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepo) : super(SpecializationStateInitial());
 
   final HomeRepo homeRepo;
-  List<SpecializationData?>? specializationsList = [];
+  List<SpecializationData> specializationsList = [];
 
   void getSpecializations() async {
     emit(SpecializationStateLoading());
@@ -18,13 +18,14 @@ class HomeCubit extends Cubit<HomeState> {
       (failure) {
       emit(SpecializationStateFailure(failure.errMessage));
     }, 
-    (specializationResponseModel) {
-      specializationsList = specializationResponseModel.specializationDataList;
 
-      if (specializationsList != null && specializationsList!.isNotEmpty) {
-        getDoctorsList(specializationId: specializationsList!.first?.id);
+    (specializationResponseModel) {
+      specializationsList = specializationResponseModel.specializationDataList!;
+
+      if (specializationsList.isNotEmpty) {
+        getDoctorsList(specializationId: specializationsList.first.id);
       }
-      emit(SpecializationStateSuccess(specializationResponseModel));
+      emit(SpecializationStateSuccess(specializationsList));
     });
   }
 
@@ -40,8 +41,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   getDoctorsListBySpecializationId(specializationId) {
     return specializationsList
-        ?.firstWhere((specialization) => specialization?.id == specializationId)
-        ?.doctorsList;
+        .firstWhere((specialization) => specialization.id == specializationId)
+        .doctorsList;
   }
 }
 

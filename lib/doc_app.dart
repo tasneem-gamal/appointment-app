@@ -29,7 +29,7 @@ class DocApp extends StatelessWidget {
           )
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Constants.isLoggedIn ? Routes.homeView : Routes.loginView,
+        initialRoute: Constants.isLoggedIn ? Routes.homeView : Routes.onBoardingView,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

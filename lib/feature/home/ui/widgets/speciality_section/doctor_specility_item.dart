@@ -29,9 +29,9 @@ class DoctorSpecilityItem extends StatelessWidget {
                   radius: 35,
                   backgroundColor: ColorsManager.kNotifiBackgroundGrey,
                   child: Image.asset(
-                    'assets/images/logo.png', // the api doesn't have this
-                    width: 24.w,
-                    height: 24.h,
+                    'assets/images/doctor.png', // the api doesn't have this
+                    width: 30.w,
+                    height: 30.h,
                   )),
           SizedBox(height: 12.h),
           Text(
@@ -55,20 +55,13 @@ class WhenSelectSpeciality extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: ColorsManager.kPrimaryColor,
-            ),
-            shape: BoxShape.circle),
-        child: CircleAvatar(
-            radius: 35,
-            backgroundColor: ColorsManager.kNotifiBackgroundGrey,
-            child: Image.asset(
-              'assets/images/logo.png', // the api doesn't have this
-              width: 28.w,
-              height: 28.h,
-            )),
-      );
+    return CircleAvatar(
+        radius: 35,
+        backgroundColor: ColorsManager.kPrimaryColor,
+        child: Image.asset(
+          'assets/images/doctor.png', // the api doesn't have this
+          width: 32.w,
+          height: 32.h,
+        ));
   }
 }

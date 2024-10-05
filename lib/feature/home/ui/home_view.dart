@@ -1,6 +1,9 @@
 import 'package:appointment_app/feature/home/ui/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/custom_buttom_app_bar.dart';
+import '../../../core/widgets/custom_floating_action_button.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -8,6 +11,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(child: HomeViewBody()),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CustomFloationgactionButton(),
+      bottomNavigationBar: CustomButtomAppBar()
     );
   }
 }
+
+
+

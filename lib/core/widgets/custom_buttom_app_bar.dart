@@ -1,26 +1,44 @@
+import 'package:appointment_app/feature/home/ui/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theming/colors.dart';
 
-class CustomButtomAppBar extends StatelessWidget {
+class CustomButtomAppBar extends StatefulWidget {
   const CustomButtomAppBar({super.key});
 
+  @override
+  State<CustomButtomAppBar> createState() => _CustomButtomAppBarState();
+}
+
+class _CustomButtomAppBarState extends State<CustomButtomAppBar> {
+
+  int selectedIndex = 0;
+  List<Widget> pages = [
+    const HomeView(),
+  ];
+  
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
         notchMargin: 10,
         color: Colors.white,
-        shape: const CircularNotchedRectangle(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(
+              onPressed: () {
+                onItemTapped(0);
+              },
+              icon: Icon(
                 Icons.home_outlined,
                 size: 32,
-                color: ColorsManager.k12SizeColorGreyShade,
+                color: selectedIndex == 0 ? ColorsManager.kPrimaryColor : ColorsManager.k12SizeColorGreyShade
               ),
             ),
             IconButton(
@@ -35,7 +53,7 @@ class CustomButtomAppBar extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.calendar_month_outlined,
-                color: ColorsManager.k12SizeColorGreyShade,
+                color:  ColorsManager.k12SizeColorGreyShade
               ),
             ),
             IconButton(

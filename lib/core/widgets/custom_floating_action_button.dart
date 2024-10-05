@@ -15,6 +15,7 @@ class CustomFloationgactionButton extends StatelessWidget {
           height: 60.h,
           child: FittedBox(
             child: FloatingActionButton(
+              elevation: 2,
               backgroundColor: ColorsManager.kPrimaryColor,
               onPressed: onPressed,
               child: const Icon(

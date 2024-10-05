@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../theming/colors.dart';
 
-class CustomButtomAppBar extends StatefulWidget {
-  const CustomButtomAppBar({super.key});
+class CustomBottomAppBar extends StatefulWidget {
+  const CustomBottomAppBar({super.key});
 
   @override
-  State<CustomButtomAppBar> createState() => _CustomButtomAppBarState();
+  State<CustomBottomAppBar> createState() => _CustomButtomAppBarState();
 }
 
-class _CustomButtomAppBarState extends State<CustomButtomAppBar> {
+class _CustomButtomAppBarState extends State<CustomBottomAppBar> {
 
   int selectedIndex = 0;
   List<Widget> pages = [

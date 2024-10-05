@@ -1,9 +1,11 @@
+import 'package:appointment_app/feature/home/ui/widgets/recommendation_doctors_section/recommendation_doctors_shimmer_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/loading_animation.dart';
 import '../../../logic/home_cubit.dart';
+import '../recommendation_doctors_section/recommendation_see_all.dart';
 import 'doctor_speciality_list_view.dart'; 
 
 class DoctorSpecilityBlocBuilder extends StatelessWidget {
@@ -18,7 +20,7 @@ class DoctorSpecilityBlocBuilder extends StatelessWidget {
             current is SpecializationStateFailure,
         builder: (context, state) {
           if (state is SpecializationStateLoading) {
-            return const LoadingAnimationCustom();
+            return const SpecialityAndRecommendationLoading();
           } else if (state is SpecializationStateSuccess) {
             return getSpecilitySection(state);
           } else if (state is SpecializationStateFailure) {
@@ -39,6 +41,29 @@ class DoctorSpecilityBlocBuilder extends StatelessWidget {
       child: DoctorSpecialityListView(
         specializationDataList: specializationList
       ),
+    );
+  }
+}
+
+class SpecialityAndRecommendationLoading extends StatelessWidget {
+  const SpecialityAndRecommendationLoading({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const LoadingAnimationCustom(),
+        SizedBox(
+          height: 16.h,
+        ),
+        const RecommendationSeeAll(),
+        SizedBox(
+          height: 12.h,
+        ),
+        const RecommendationDoctorsShimmerListView()
+      ],
     );
   }
 }

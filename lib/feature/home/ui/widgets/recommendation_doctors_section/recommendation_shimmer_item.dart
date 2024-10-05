@@ -23,7 +23,7 @@ class RecommendationShimmerItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(12.0),
-                  color: Colors.white,
+                  color: ColorsManager.kLighterGrey,
                 ),
               ),
             ),

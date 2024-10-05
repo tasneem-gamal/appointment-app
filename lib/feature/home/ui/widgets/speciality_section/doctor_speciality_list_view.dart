@@ -22,7 +22,7 @@ class _DoctorSpecialityListViewState extends State<DoctorSpecialityListView> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 86.h,
-      child: ListView.separated(
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: widget.specializationDataList.length,
         itemBuilder: (context, index) => GestureDetector(
@@ -40,7 +40,6 @@ class _DoctorSpecialityListViewState extends State<DoctorSpecialityListView> {
             itemIndex: index,
           ),
         ),
-        separatorBuilder: (context, index) => SizedBox(width: 16.w),
       ),
     );
   }

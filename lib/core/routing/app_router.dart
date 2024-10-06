@@ -1,7 +1,7 @@
 import 'package:appointment_app/core/di/dependency_injection.dart';
 import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/feature/home/logic/home_cubit.dart';
-import 'package:appointment_app/feature/home/ui/widgets/see_all_recommendation_doctors/see_all_recommendation_doctors_body.dart';
+import 'package:appointment_app/feature/home/ui/widgets/see_all_recommendation_doctors/see_all_recommendation_doctors_view.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/login_view.dart';
 import 'package:appointment_app/feature/on_boarding_view/on_boarding_view.dart';
@@ -29,8 +29,8 @@ class AppRouter {
                   child: const HomeView(),
                 ));
       
-      case Routes.seeAllRecommendationDoctorsBody:
-        return MaterialPageRoute(builder: (_) => const SeeAllRecommendationDoctorsBody());
+      case Routes.seeAllRecommendationDoctorsView:
+        return MaterialPageRoute(builder: (_) => const SeeAllRecommendationDoctorsView());
 
       // sign up view
       case Routes.signUpView:

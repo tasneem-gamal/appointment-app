@@ -5,5 +5,5 @@ class Routes {
 
   // home and related to it
   static const homeView = '/homeView';
-  static const seeAllRecommendationDoctorsBody = '/seeAllRecommendationDoctorsBody';
+  static const seeAllRecommendationDoctorsView = '/seeAllRecommendationDoctorsView';
 }

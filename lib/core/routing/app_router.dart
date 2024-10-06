@@ -1,6 +1,6 @@
 import 'package:appointment_app/core/di/dependency_injection.dart';
 import 'package:appointment_app/core/routing/routes.dart';
-import 'package:appointment_app/feature/home/logic/home_cubit.dart';
+import 'package:appointment_app/feature/home/logic/home_cubit/home_cubit.dart';
 import 'package:appointment_app/feature/home/ui/widgets/see_all_recommendation_doctors/see_all_recommendation_doctors_view.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/login_view.dart';

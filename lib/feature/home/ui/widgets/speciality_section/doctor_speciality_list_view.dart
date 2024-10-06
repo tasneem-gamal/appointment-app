@@ -1,5 +1,5 @@
 import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
-import 'package:appointment_app/feature/home/logic/home_cubit.dart';
+import 'package:appointment_app/feature/home/logic/home_cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

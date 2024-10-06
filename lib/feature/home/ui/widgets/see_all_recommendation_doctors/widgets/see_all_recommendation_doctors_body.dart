@@ -17,7 +17,8 @@ class SeeAllRecommendationDoctorsBody extends StatelessWidget {
           children: [
             const RecommendationDoctorTopBar(),
             SizedBox(height: 32.h,),
-            const RecommendationDoctorSearchField()
+            const RecommendationDoctorSearchField(),
+            SizedBox(height: 24.h,),
           ],
         ),
       ),

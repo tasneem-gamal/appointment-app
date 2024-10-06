@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/loading_animation.dart';
-import '../../../logic/home_cubit.dart';
+import '../../../logic/home_cubit/home_cubit.dart';
 import '../recommendation_doctors_section/recommendation_see_all.dart';
 import 'doctor_speciality_list_view.dart'; 
 

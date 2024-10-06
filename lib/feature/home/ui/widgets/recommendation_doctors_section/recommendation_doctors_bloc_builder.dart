@@ -2,7 +2,7 @@ import 'package:appointment_app/feature/home/ui/widgets/recommendation_doctors_s
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../logic/home_cubit.dart';
+import '../../../logic/home_cubit/home_cubit.dart';
 
 class RecommendationDoctorsBlocBuilder extends StatelessWidget {
   const RecommendationDoctorsBlocBuilder({super.key});

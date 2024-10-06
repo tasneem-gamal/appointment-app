@@ -1,3 +1,5 @@
+import 'package:appointment_app/core/helpers/extension.dart';
+import 'package:appointment_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/theming/colors.dart';
@@ -16,7 +18,9 @@ class RecommendationSeeAll extends StatelessWidget {
           style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w600),
         ),
         TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.seeAllRecommendationDoctorsBody);
+            },
             child: Text(
               'See All',
               style: Styles.textStyle14.copyWith(

@@ -12,8 +12,13 @@ class SearchCubit extends Cubit<SearchState> {
 
   final HomeRepo homeRepo;
 
-  Future<void> searchForDoctors() async{
+  Future<void> searchForDoctors(String doctorName) async {
     emit(SearchStateLoading());
-    
+    try {
+      final doctorsList = await homeRepo.getDoctorsBySearch(doctorName);
+      emit(SearchStateSucess(doctorsList as List<Doctor>));
+    } catch (error) {
+      emit(SearchStateFailure('failed'));
+    }
   }
 }

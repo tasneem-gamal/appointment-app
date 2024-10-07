@@ -17,4 +17,13 @@ class HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  Future<Either<Failure, List<Doctor>>> getDoctorsBySearch(String doctorName) async {
+    try {
+      final response = await homeApiService.getDoctorsBySearch(doctorName);
+      return right(response);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

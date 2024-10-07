@@ -10,23 +10,22 @@ class RecommendationDoctorsSearchBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
-      buildWhen: (previous, current) => 
-            current is SearchStateLoading ||
-            current is SearchStateSucess ||
-            current is SearchStateFailure,
-      builder: (context, state){
-        if(state is SearchStateLoading){
-          return const RecommendationDoctorsShimmerListView();
-        } else if(state is SearchStateSucess){
-          return RecommendationDoctorsListView(
-            doctorsList: state.doctorsList,
-          );
-        } else if(state is SearchStateFailure){
-          return Text(state.errMessage);
-        } else{
-          return const SizedBox.shrink();
-        }
-      }
-    );
+  buildWhen: (previous, current) => 
+    current is SearchStateLoading ||
+    current is SearchStateSucess ||
+    current is SearchStateFailure,
+  builder: (context, state) {
+     print('Current state: $state');
+    if (state is SearchStateLoading) {
+      return const RecommendationDoctorsShimmerListView();
+    } else if (state is SearchStateSucess) {
+      return RecommendationDoctorsListView(doctorsList: state.doctorsList);
+    } else if (state is SearchStateFailure) {
+      return Text(state.errMessage);
+    } else {
+      return const SizedBox.shrink();
+    }
+  }
+);
   }
 }

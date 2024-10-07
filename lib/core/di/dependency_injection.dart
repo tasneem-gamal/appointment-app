@@ -1,6 +1,7 @@
 import 'package:appointment_app/feature/home/data/apis/home_api_service.dart';
 import 'package:appointment_app/feature/home/data/repos/home_repo.dart';
 import 'package:appointment_app/feature/home/logic/cubit/search_cubit.dart';
+import 'package:appointment_app/feature/home/logic/home_cubit/home_cubit.dart';
 import 'package:appointment_app/feature/login/data/apis/login_api_service.dart';
 import 'package:appointment_app/feature/login/data/repo/login_repo.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
@@ -33,6 +34,8 @@ void setupGetIt(){
   getIt.registerSingleton<HomeRepo>(HomeRepo(
     getIt.get<HomeApiService>()
   ));
+  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+
 
   getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
 

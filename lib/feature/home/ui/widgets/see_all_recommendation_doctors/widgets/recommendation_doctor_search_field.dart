@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../../core/theming/colors.dart';
+import '../../../../logic/cubit/search_cubit.dart';
 
 class RecommendationDoctorSearchField extends StatelessWidget {
   const RecommendationDoctorSearchField({
-    super.key, required this.onSearch,
+    super.key, 
   });
 
-  final Function(String) onSearch;
 
   
   @override
@@ -23,10 +24,7 @@ class RecommendationDoctorSearchField extends StatelessWidget {
           height: 42.h,
           child: TextFormField(
             onFieldSubmitted: (value){
-              final searchQuery = textEditingController.text;
-              if(searchQuery.isNotEmpty){
-                onSearch(searchQuery);
-              }
+              BlocProvider.of<SearchCubit>(context).searchForDoctors(value);
             },
             controller: textEditingController,
             decoration: InputDecoration(

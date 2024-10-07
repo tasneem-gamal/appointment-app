@@ -31,12 +31,16 @@ class AppRouter {
                 ));
 
       case Routes.seeAllRecommendationDoctorsView:
-        final String searchQuery = argument as String;
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => SearchCubit(getIt())..searchForDoctors(searchQuery),
-                  child: const SeeAllRecommendationDoctorsView(),
-                ));
+  final String searchQuery = argument as String;
+  return MaterialPageRoute(
+    builder: (_) => MultiBlocProvider(
+      providers: [
+        BlocProvider<HomeCubit>(create: (context) => getIt<HomeCubit>()),
+        BlocProvider<SearchCubit>(create: (context) => SearchCubit(getIt())..searchForDoctors(searchQuery)),
+      ],
+      child: const SeeAllRecommendationDoctorsView(),
+    ),
+  );
 
       // sign up view
       case Routes.signUpView:

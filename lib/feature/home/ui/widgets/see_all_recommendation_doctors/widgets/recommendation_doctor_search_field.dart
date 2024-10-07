@@ -23,7 +23,7 @@ class RecommendationDoctorSearchField extends StatelessWidget {
           width: 290.w,
           height: 42.h,
           child: TextFormField(
-            onFieldSubmitted: (value){
+            onChanged: (value){
               BlocProvider.of<SearchCubit>(context).searchForDoctors(value);
             },
             controller: textEditingController,

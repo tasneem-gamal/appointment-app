@@ -20,9 +20,7 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SearchStateFailure(failure.errMessage));
     },
     (doctorsList) {
-      emit(doctorsList.isEmpty 
-        ? SearchStateFailure('No doctors found.')
-        : SearchStateSucess(doctorsList));
+      emit(SearchStateSucess(doctorsList));
     },
   );
 }

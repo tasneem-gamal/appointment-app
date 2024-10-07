@@ -9,12 +9,6 @@ class RecommendationDoctorsListView extends StatelessWidget {
   final List<Doctor>? doctorsList;
   @override
   Widget build(BuildContext context) {
-    if (doctorsList == null || doctorsList!.isEmpty) {
-      return const Center(
-        child: Text('No doctors available'),
-      );
-    }
-
     return ListView.separated(
       itemBuilder: (context, index) => RecommendationDoctorsItem(
         doctorsModel: doctorsList![index],

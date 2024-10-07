@@ -15,7 +15,6 @@ class RecommendationDoctorsSearchBlocBuilder extends StatelessWidget {
     current is SearchStateSucess ||
     current is SearchStateFailure,
   builder: (context, state) {
-     print('Current state: $state');
     if (state is SearchStateLoading) {
       return const RecommendationDoctorsShimmerListView();
     } else if (state is SearchStateSucess) {

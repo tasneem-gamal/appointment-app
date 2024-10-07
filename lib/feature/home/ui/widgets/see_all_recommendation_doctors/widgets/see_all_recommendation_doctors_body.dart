@@ -1,9 +1,9 @@
 import 'package:appointment_app/core/helpers/constants.dart';
-import 'package:appointment_app/feature/home/ui/widgets/recommendation_doctors_section/recommendation_doctors_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'recommendation_doctor_search_field.dart';
 import 'recommendation_doctor_top_bar.dart';
+import 'recommendation_doctors_search_bloc_builder.dart';
 
 class SeeAllRecommendationDoctorsBody extends StatelessWidget {
   const SeeAllRecommendationDoctorsBody({super.key});
@@ -20,7 +20,7 @@ class SeeAllRecommendationDoctorsBody extends StatelessWidget {
             SizedBox(height: 32.h,),
             const RecommendationDoctorSearchField(),
             SizedBox(height: 24.h,),
-            const RecommendationDoctorsBlocBuilder()
+            const RecommendationDoctorsSearchBlocBuilder()
           ],
         ),
       ),

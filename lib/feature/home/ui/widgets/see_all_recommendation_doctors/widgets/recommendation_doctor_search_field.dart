@@ -8,15 +8,18 @@ class RecommendationDoctorSearchField extends StatelessWidget {
   const RecommendationDoctorSearchField({
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
+  final TextEditingController textEditingController = TextEditingController();
+
     return Row(
       children: [
         SizedBox(
           width: 290.w,
           height: 42.h,
           child: TextFormField(
+            controller: textEditingController,
             decoration: InputDecoration(
               hintText: 'Search',
               hintStyle: const TextStyle(

@@ -27,4 +27,25 @@ class HomeApiService {
       throw Exception('Failed to load specializations: $error');
     }
   }
+
+
+  Future<List<Doctor>> getDoctorsBySearch(String doctorName) async {
+    try {
+      final response = await dio.get(
+        '${ApiConstants.baseUrl}${HomeApiConstants.doctorSearch}$doctorName',
+        options: Options(
+          headers: {
+            'Authorization':
+                'Bearer ${await SharedPreferenceHelper.getSecuredString(SharedPreferencesKeys.userToken)}',
+          },
+        ),
+      );
+      List<Doctor> doctorsList = (response.data as List)
+          .map((doctor) => Doctor.fromJson(doctor))
+          .toList();
+      return doctorsList;
+    } catch (error) {
+      throw Exception('Failed to search doctors: $error');
+    }
+  }
 }

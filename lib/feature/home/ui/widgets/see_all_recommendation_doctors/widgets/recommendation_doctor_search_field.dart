@@ -6,8 +6,11 @@ import '../../../../../../core/theming/colors.dart';
 
 class RecommendationDoctorSearchField extends StatelessWidget {
   const RecommendationDoctorSearchField({
-    super.key,
+    super.key, required this.onSearch,
   });
+
+  final Function(String) onSearch;
+
   
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,12 @@ class RecommendationDoctorSearchField extends StatelessWidget {
           width: 290.w,
           height: 42.h,
           child: TextFormField(
+            onFieldSubmitted: (value){
+              final searchQuery = textEditingController.text;
+              if(searchQuery.isNotEmpty){
+                onSearch(searchQuery);
+              }
+            },
             controller: textEditingController,
             decoration: InputDecoration(
               hintText: 'Search',

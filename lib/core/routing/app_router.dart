@@ -1,5 +1,6 @@
 import 'package:appointment_app/core/di/dependency_injection.dart';
 import 'package:appointment_app/core/routing/routes.dart';
+import 'package:appointment_app/feature/home/logic/cubit/search_cubit.dart';
 import 'package:appointment_app/feature/home/logic/home_cubit/home_cubit.dart';
 import 'package:appointment_app/feature/home/ui/widgets/see_all_recommendation_doctors/see_all_recommendation_doctors_view.dart';
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
@@ -15,7 +16,7 @@ import '../../feature/home/ui/home_view.dart';
 class AppRouter {
   Route? generateRoutes(RouteSettings settings) {
     // arg to be passed
-    //final argument = settings.name;
+    final argument = settings.name;
     switch (settings.name) {
       // on boarding view
       case Routes.onBoardingView:
@@ -28,9 +29,14 @@ class AppRouter {
                   create: (context) => HomeCubit(getIt())..getSpecializations(),
                   child: const HomeView(),
                 ));
-      
+
       case Routes.seeAllRecommendationDoctorsView:
-        return MaterialPageRoute(builder: (_) => const SeeAllRecommendationDoctorsView());
+        final String searchQuery = argument as String;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => SearchCubit(getIt())..searchForDoctors(searchQuery),
+                  child: const SeeAllRecommendationDoctorsView(),
+                ));
 
       // sign up view
       case Routes.signUpView:
@@ -39,7 +45,6 @@ class AppRouter {
                   create: (context) => getIt<SignCubit>(),
                   child: const SignUpView(),
                 ));
-
 
       // login view
       case Routes.loginView:

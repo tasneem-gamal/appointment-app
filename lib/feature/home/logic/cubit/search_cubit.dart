@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'search_state.dart';
 
-
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.homeRepo) : super(SearchStateInitial());
 
@@ -15,10 +14,23 @@ class SearchCubit extends Cubit<SearchState> {
   Future<void> searchForDoctors(String doctorName) async {
     emit(SearchStateLoading());
     try {
-      final doctorsList = await homeRepo.getDoctorsBySearch(doctorName);
-      emit(SearchStateSucess(doctorsList as List<Doctor>));
+      final eitherResult = await homeRepo.getDoctorsBySearch(doctorName);
+
+      // Check for success or failure in the result
+      eitherResult.fold(
+        (failure) {
+          emit(SearchStateFailure(failure.errMessage));  // Emit failure with error message
+        },
+        (doctorsList) {
+          if (doctorsList.isEmpty) {
+            emit(SearchStateFailure('No doctors found.'));  // Emit failure if no doctors are found
+          } else {
+            emit(SearchStateSucess(doctorsList));  // Emit success with the list of doctors
+          }
+        },
+      );
     } catch (error) {
-      emit(SearchStateFailure('failed'));
+      emit(SearchStateFailure('An error occurred: $error'));  // Emit failure with error details
     }
   }
 }

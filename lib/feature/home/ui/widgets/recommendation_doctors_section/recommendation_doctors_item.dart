@@ -1,3 +1,5 @@
+import 'package:appointment_app/core/helpers/extension.dart';
+import 'package:appointment_app/core/routing/routes.dart';
 import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,55 +13,60 @@ class RecommendationDoctorsItem extends StatelessWidget {
   final Doctor doctorsModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 126.h,
-      decoration: BoxDecoration(
-          color: ColorsManager.kNotifiBackgroundGrey,
-          borderRadius: BorderRadius.circular(16)),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              'assets/images/recom_doc.png', // there is no image for doc 
-              width: 110.w,
-              height: 110.h,
-              fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(Routes.doctorProfileView);
+      },
+      child: Container(
+        height: 126.h,
+        decoration: BoxDecoration(
+            color: ColorsManager.kNotifiBackgroundGrey,
+            borderRadius: BorderRadius.circular(16)),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                'assets/images/recom_doc.png', // there is no image for doc 
+                width: 110.w,
+                height: 110.h,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          SizedBox(
-            width: 16.h,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  doctorsModel.name ?? 'Dr. Randy Wigham',
-                  style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 8.h,
-                ),
-                Text(
-                  '${doctorsModel.degree} | ${doctorsModel.phoneNumber}',
-                    style: Styles.textStyle12.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: ColorsManager.kGreytextColor)),
-                SizedBox(
-                  height: 12.h,
-                ),
-                Text(
-                      doctorsModel.email ?? "hello@gmail.com",
+            SizedBox(
+              width: 16.h,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    doctorsModel.name ?? 'Dr. Randy Wigham',
+                    style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  Text(
+                    '${doctorsModel.degree} | ${doctorsModel.phoneNumber}',
                       style: Styles.textStyle12.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: ColorsManager.kGreytextColor),
-                    ),
-              ],
-            ),
-          )
-        ],
+                          color: ColorsManager.kGreytextColor)),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Text(
+                        doctorsModel.email ?? "hello@gmail.com",
+                        style: Styles.textStyle12.copyWith(
+                            fontWeight: FontWeight.w500,
+                            color: ColorsManager.kGreytextColor),
+                      ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

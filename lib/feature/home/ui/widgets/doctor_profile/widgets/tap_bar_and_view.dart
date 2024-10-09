@@ -1,4 +1,5 @@
 import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/doctor_location_tab.dart';
+import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/doctor_review_list_view_tap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,20 +33,11 @@ class TapBarAndView extends StatelessWidget {
                 ),
               ]),
           SizedBox(height: 32.h,),
-          Expanded(
+          const Expanded(
             child: TabBarView(children: [
-              const AboutDoctor(),
-              const DoctorLocationTab(),
-              Column(
-                children: [
-                  Text(
-                    'About me',
-                    style: Styles.textStyle16.copyWith(
-                      fontWeight: FontWeight.w600
-                    ),
-                  )
-                ],
-              ),
+              AboutDoctor(),
+              DoctorLocationTab(),
+              DoctorReviewListViewTap()
             ]),
           )
         ],

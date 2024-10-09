@@ -1,3 +1,4 @@
+import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/doctor_location_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,16 +35,7 @@ class TapBarAndView extends StatelessWidget {
           Expanded(
             child: TabBarView(children: [
               const AboutDoctor(),
-              Column(
-                children: [
-                  Text(
-                    'About me',
-                    style: Styles.textStyle16.copyWith(
-                      fontWeight: FontWeight.w600
-                    ),
-                  )
-                ],
-              ),
+              const DoctorLocationTab(),
               Column(
                 children: [
                   Text(

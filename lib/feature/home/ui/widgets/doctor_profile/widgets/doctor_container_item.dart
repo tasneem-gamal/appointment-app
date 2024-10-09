@@ -13,7 +13,7 @@ class DoctorContainerItem extends StatelessWidget {
     return Container(
       height: 79.h,
       decoration: BoxDecoration(
-          color: ColorsManager.kNotifiBackgroundGrey,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16)),
       child: Row(
         children: [

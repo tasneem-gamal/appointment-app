@@ -8,7 +8,11 @@ class DoctorProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: Constants.homepadding,
-      child: Text('data'),
+      child: Column(
+        children: [
+          
+        ],
+      ),
     );
   }
 }

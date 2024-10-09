@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
 
-class RecommendationDoctorTopBar extends StatelessWidget {
-  const RecommendationDoctorTopBar({
-    super.key,
+class RecommendationDoctorAndProfileTopBar extends StatelessWidget {
+  const RecommendationDoctorAndProfileTopBar({
+    super.key, required this.topBarText,
   });
+
+  final String topBarText;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class RecommendationDoctorTopBar extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios_new)),
         ),
         Text(
-          'Recommendation Doctor',
+          topBarText,
           style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w600),
         ),
         Container(

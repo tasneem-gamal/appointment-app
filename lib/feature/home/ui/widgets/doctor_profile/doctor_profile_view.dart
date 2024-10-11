@@ -5,13 +5,16 @@ import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class DoctorProfileView extends StatelessWidget {
   const DoctorProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const SafeArea(child: DoctorProfileBody()),
+      body: const SafeArea(
+        child: DoctorProfileBody(
+        )),
       bottomNavigationBar: Padding(
         padding: Constants.homepadding.copyWith(
           bottom: 20.h

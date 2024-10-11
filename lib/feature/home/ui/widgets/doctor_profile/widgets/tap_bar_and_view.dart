@@ -9,7 +9,6 @@ import 'about_doctor_tap.dart';
 
 class TapBarAndView extends StatelessWidget {
   const TapBarAndView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -36,8 +35,8 @@ class TapBarAndView extends StatelessWidget {
           const Expanded(
             child: TabBarView(children: [
               AboutDoctor(),
-              DoctorLocationTab(),
-              DoctorReviewListViewTap()
+              const DoctorLocationTab(),
+              const DoctorReviewListViewTap()
             ]),
           )
         ],

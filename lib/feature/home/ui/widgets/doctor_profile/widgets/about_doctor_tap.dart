@@ -6,7 +6,6 @@ import '../../../../../../core/theming/colors.dart';
 
 class AboutDoctor extends StatelessWidget {
   const AboutDoctor({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Column(

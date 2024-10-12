@@ -14,7 +14,7 @@ class DoctorContainerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 79.h,
+      height: 100.h,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16)),
@@ -38,14 +38,14 @@ class DoctorContainerItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Dr. Randy Wigham',
+                  doctorModel.name ?? 'Dr. Randy Wigham',
                   style:
                       Styles.textStyle16.copyWith(fontWeight: FontWeight.w700),
                 ),
                 SizedBox(
                   height: 8.h,
                 ),
-                Text('General | RSUD Gatot Subroto',
+                Text('${doctorModel.degree} | ${doctorModel.phoneNumber}',
                     style: Styles.textStyle12.copyWith(
                         fontWeight: FontWeight.w500,
                         color: ColorsManager.kGreytextColor)),
@@ -53,7 +53,7 @@ class DoctorContainerItem extends StatelessWidget {
                   height: 12.h,
                 ),
                 Text(
-                  "hello@gmail.com",
+                  doctorModel.email ?? "hello@gmail.com",
                   style: Styles.textStyle12.copyWith(
                       fontWeight: FontWeight.w500,
                       color: ColorsManager.kGreytextColor),

@@ -1,4 +1,5 @@
 import 'package:appointment_app/core/theming/colors.dart';
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,7 +7,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../../core/theming/styles.dart';
 
 class DoctorContainerItem extends StatelessWidget {
-  const DoctorContainerItem({super.key});
+  const DoctorContainerItem({super.key, required this.doctorModel});
+
+  final Doctor doctorModel;
 
   @override
   Widget build(BuildContext context) {

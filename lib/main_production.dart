@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-bool isLoggedIn = false;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();

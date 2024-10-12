@@ -15,7 +15,10 @@ class RecommendationDoctorsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(Routes.doctorProfileView);
+        context.pushNamed(
+          Routes.doctorProfileView,
+          arguments: doctorsModel
+        );
       },
       child: Container(
         height: 126.h,

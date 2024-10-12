@@ -12,6 +12,7 @@ import 'package:appointment_app/feature/sign_up/ui/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../feature/home/data/models/specialization_response_model.dart';
 import '../../feature/home/ui/home_view.dart';
 
 class AppRouter {
@@ -47,8 +48,9 @@ class AppRouter {
 
 
         case Routes.doctorProfileView:
+        final doctor = settings.arguments as Doctor;
         return MaterialPageRoute(
-            builder: (_) => const DoctorProfileView());
+            builder: (_) =>  DoctorProfileView(doctorModel: doctor,));
 
       // sign up view
       case Routes.signUpView:

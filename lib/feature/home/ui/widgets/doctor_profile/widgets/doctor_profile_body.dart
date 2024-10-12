@@ -24,7 +24,7 @@ class DoctorProfileBody extends StatelessWidget {
             SizedBox(height: 32.h,),
             DoctorContainerItem(doctorModel: doctorModel,),
             SizedBox(height: 24.h,),
-            const TapBarAndView(),
+            TapBarAndView(doctorModel: doctorModel,),
           ],
         ),
       ),

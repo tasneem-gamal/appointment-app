@@ -1,3 +1,4 @@
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/doctor_location_tab.dart';
 import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/doctor_review_list_view_tap.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,8 @@ import '../../../../../../core/theming/styles.dart';
 import 'about_doctor_tap.dart';
 
 class TapBarAndView extends StatelessWidget {
-  const TapBarAndView({super.key});
+  const TapBarAndView({super.key, required this.doctorModel});
+  final Doctor doctorModel;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -32,9 +34,9 @@ class TapBarAndView extends StatelessWidget {
                 ),
               ]),
           SizedBox(height: 32.h,),
-          const Expanded(
+          Expanded(
             child: TabBarView(children: [
-              AboutDoctor(),
+              AboutDoctor(doctorModel: doctorModel,),
               DoctorLocationTab(),
               DoctorReviewListViewTap()
             ]),

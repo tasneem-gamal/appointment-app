@@ -1,11 +1,14 @@
 import 'package:appointment_app/core/theming/styles.dart';
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theming/colors.dart';
 
 class AboutDoctor extends StatelessWidget {
-  const AboutDoctor({super.key});
+  const AboutDoctor({super.key, required this.doctorModel});
+
+  final Doctor doctorModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +22,7 @@ class AboutDoctor extends StatelessWidget {
           height: 12.h,
         ),
         Text(
-          'Dr. Jenny Watson is the top most Immunologists specialist in Christ Hospital at London. She achived several awards for her wonderful contribution in medical field. She is available for private consultation.',
+          'I"m ${doctorModel.name} my degree is ${doctorModel.degree}',
           style:
               Styles.textStyle14.copyWith(color: ColorsManager.kGreytextColor),
         ),
@@ -34,7 +37,7 @@ class AboutDoctor extends StatelessWidget {
           height: 12.h,
         ),
         Text(
-          'Monday - Friday, 08.00 AM - 20.00 PM',
+          'Monday - Friday, ${doctorModel.startTime} - ${doctorModel.endTime}',
           style:
               Styles.textStyle14.copyWith(color: ColorsManager.kGreytextColor),
         ),
@@ -49,7 +52,7 @@ class AboutDoctor extends StatelessWidget {
           height: 12.h,
         ),
         Text(
-          '4726482464',
+          '${doctorModel.price}',
           style:
               Styles.textStyle14.copyWith(color: ColorsManager.kGreytextColor),
         ),

@@ -37,7 +37,7 @@ class TapBarAndView extends StatelessWidget {
           Expanded(
             child: TabBarView(children: [
               AboutDoctor(doctorModel: doctorModel,),
-              DoctorLocationTab(),
+              DoctorLocationTab(doctorModel: doctorModel,),
               DoctorReviewListViewTap()
             ]),
           )

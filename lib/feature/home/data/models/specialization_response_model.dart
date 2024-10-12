@@ -64,6 +64,7 @@ class Doctor {
   String? degree;
   String? startTime;
   String? endTime;
+  String? practicePlace;
 
   Doctor({
     this.id,
@@ -75,7 +76,8 @@ class Doctor {
     this.price,
     this.degree,
     this.startTime,
-    this.endTime
+    this.endTime,
+    this.practicePlace
   });
 
   factory Doctor.fromJson(Map<String, dynamic> json) {
@@ -89,7 +91,8 @@ class Doctor {
       price: json['appoint_price'],
       degree: json['degree'],
       startTime: json['start_time'],
-      endTime: json['end_time']
+      endTime: json['end_time'],
+      practicePlace: json['city']['name']
     );
   }
 }

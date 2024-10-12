@@ -1,3 +1,4 @@
+import 'package:appointment_app/feature/home/data/models/specialization_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,8 +6,8 @@ import '../../../../../../core/theming/colors.dart';
 import '../../../../../../core/theming/styles.dart';
 
 class DoctorLocationTab extends StatelessWidget {
-  const DoctorLocationTab({super.key});
-
+  const DoctorLocationTab({super.key, required this.doctorModel});
+  final Doctor doctorModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +21,7 @@ class DoctorLocationTab extends StatelessWidget {
           height: 12.h,
         ),
         Text(
-          'Cairo, Egypt',
+          doctorModel.practicePlace ?? 'Cairo, Egypt',
           style:
               Styles.textStyle14.copyWith(color: ColorsManager.kGreytextColor),
         ),

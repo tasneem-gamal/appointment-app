@@ -7,4 +7,6 @@ class Routes {
   static const homeView = '/homeView';
   static const seeAllRecommendationDoctorsView = '/seeAllRecommendationDoctorsView';
   static const doctorProfileView = '/doctorProfileView';
+
+  static const searchView = 'searchView';
 }

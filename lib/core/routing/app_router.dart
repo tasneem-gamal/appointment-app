@@ -7,6 +7,7 @@ import 'package:appointment_app/feature/home/ui/widgets/see_all_recommendation_d
 import 'package:appointment_app/feature/login/logic/login_cubit/login_cubit.dart';
 import 'package:appointment_app/feature/login/ui/login_view.dart';
 import 'package:appointment_app/feature/on_boarding_view/on_boarding_view.dart';
+import 'package:appointment_app/feature/search/search_view.dart';
 import 'package:appointment_app/feature/sign_up/logic/sign_cubit/sign_cubit.dart';
 import 'package:appointment_app/feature/sign_up/ui/sign_up_view.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,11 @@ class AppRouter {
         final doctor = settings.arguments as Doctor;
         return MaterialPageRoute(
             builder: (_) =>  DoctorProfileView(doctorModel: doctor,));
-
+        
+        case Routes.searchView:
+        return MaterialPageRoute(
+          builder: (_) => const SearchView()
+        );
       // sign up view
       case Routes.signUpView:
         return MaterialPageRoute(

@@ -22,7 +22,7 @@ class CustomTopBar extends StatelessWidget {
           height: 40.h,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: ColorsManager.kLighterGrey, width: 2)),
+              border: Border.all(color: ColorsManager.kNotifiBackgroundGrey, width: 2)),
           child: IconButton(
               onPressed: () {
                 context.pop();

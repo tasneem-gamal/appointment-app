@@ -2,7 +2,7 @@ import 'package:appointment_app/core/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'recommendation_doctor_search_field.dart';
-import 'recommendation_doctor_and_profile_top_bar.dart';
+import '../../doctor_profile/widgets/home_general_customs_widgets/custom_top_bar_for_home_widgets.dart.dart';
 import 'recommendation_doctors_search_bloc_builder.dart';
 
 class SeeAllRecommendationDoctorsBody extends StatelessWidget {
@@ -16,7 +16,7 @@ class SeeAllRecommendationDoctorsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const RecommendationDoctorAndProfileTopBar(
+            const CustomTopBarForHomeWidgets(
               topBarText: 'Recommendation Doctor',
             ),
             SizedBox(height: 32.h,),

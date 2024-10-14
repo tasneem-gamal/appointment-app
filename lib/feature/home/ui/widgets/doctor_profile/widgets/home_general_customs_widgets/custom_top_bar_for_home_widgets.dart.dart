@@ -2,11 +2,11 @@ import 'package:appointment_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/theming/colors.dart';
-import '../../../../../../core/theming/styles.dart';
+import '../../../../../../../core/theming/colors.dart';
+import '../../../../../../../core/theming/styles.dart';
 
-class RecommendationDoctorAndProfileTopBar extends StatelessWidget {
-  const RecommendationDoctorAndProfileTopBar({
+class CustomTopBarForHomeWidgets extends StatelessWidget {
+  const CustomTopBarForHomeWidgets({
     super.key, required this.topBarText,
   });
 
@@ -40,9 +40,7 @@ class RecommendationDoctorAndProfileTopBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: ColorsManager.kLighterGrey, width: 2)),
           child: IconButton(
-              onPressed: () {
-                context.pop();
-              },
+              onPressed: () {},
               icon: const Icon(Icons.more_horiz)),
         ),
       ],

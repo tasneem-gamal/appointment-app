@@ -2,11 +2,11 @@ import 'package:appointment_app/core/helpers/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/theming/colors.dart';
-import '../../../../../../../core/theming/styles.dart';
+import '../theming/colors.dart';
+import '../theming/styles.dart';
 
-class CustomTopBarForHomeWidgets extends StatelessWidget {
-  const CustomTopBarForHomeWidgets({
+class CustomTopBar extends StatelessWidget {
+  const CustomTopBar({
     super.key, required this.topBarText,
   });
 

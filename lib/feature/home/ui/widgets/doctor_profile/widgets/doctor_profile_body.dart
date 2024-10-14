@@ -5,7 +5,7 @@ import 'package:appointment_app/feature/home/ui/widgets/doctor_profile/widgets/t
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'home_general_customs_widgets/custom_top_bar_for_home_widgets.dart.dart';
+import '../../../../../../core/widgets/custom_top_bar.dart';
 
 
 class DoctorProfileBody extends StatelessWidget {
@@ -22,7 +22,7 @@ class DoctorProfileBody extends StatelessWidget {
         padding: Constants.homepadding,
         child: Column(
           children: [
-            CustomTopBarForHomeWidgets(topBarText: doctorModel.name ?? 'Dr Randy Wigham'),
+            CustomTopBar(topBarText: doctorModel.name ?? 'Dr Randy Wigham'),
             SizedBox(height: 32.h,),
             DoctorContainerItem(doctorModel: doctorModel,),
             SizedBox(height: 24.h,),

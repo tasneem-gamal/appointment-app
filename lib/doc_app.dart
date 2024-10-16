@@ -30,7 +30,7 @@ class DocApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         // the token expire every day you need to login again
-        initialRoute: Constants.isLoggedIn ? Routes.homeView :  Routes.onBoardingView,
+        initialRoute:  Constants.isLoggedIn ? Routes.homeView : Routes.onBoardingView,
         onGenerateRoute: appRouter.generateRoutes,
       ),
     );

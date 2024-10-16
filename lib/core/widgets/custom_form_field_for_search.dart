@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../../../core/theming/colors.dart';
-import '../../../../logic/cubit/search_cubit.dart';
+import '../theming/colors.dart';
 
-class RecommendationDoctorSearchField extends StatelessWidget {
-  const RecommendationDoctorSearchField({
-    super.key, 
+class CustomTextFormFieldForsearch extends StatelessWidget {
+  const CustomTextFormFieldForsearch({
+    super.key, this.onChanged, 
   });
 
-
+  final Function(String)? onChanged;
   
   @override
   Widget build(BuildContext context) {
   final TextEditingController textEditingController = TextEditingController();
 
     return TextFormField(
-      onChanged: (value){
-        BlocProvider.of<SearchCubit>(context).searchForDoctors(value);
-      },
+      onChanged: onChanged,
       controller: textEditingController,
       decoration: InputDecoration(
         hintText: 'Search',

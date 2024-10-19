@@ -5,6 +5,7 @@ import 'package:appointment_app/feature/search/widgets/category_chip_list_view.d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
   
@@ -19,7 +20,8 @@ class SearchViewBody extends StatelessWidget {
           SizedBox(height: 32.h,),
           const CustomTextFormFieldForsearch(),
           SizedBox(height: 24.h,),
-          const CategoryChipListView()
+          const CategoryChipListView(),
+          SizedBox(height: 24.h,),
         ],
       ),
     );
